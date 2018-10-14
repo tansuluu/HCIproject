@@ -38,6 +38,11 @@ body, html {
 	height: 100%;
 	font-family: SourceSansPro-Regular, sans-serif;
 }
+.validation-message{
+  color: red;
+  margin-bottom:10px;
+  max-width: 230px;
+}
 
 /*---------------------------------------------*/
 a {

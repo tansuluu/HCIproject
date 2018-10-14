@@ -14,6 +14,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import javax.sql.DataSource;
 
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -30,6 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Value("${spring.queries.roles-query}")
     private String rolesQuery;
 
+    @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
         auth.
@@ -48,10 +50,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
-                .antMatchers("/admin/**").hasAuthority("USER").anyRequest()
+                .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")
-                .defaultSuccessUrl("/admin/home")
+                .defaultSuccessUrl("/admin/home",true)
+
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().logout()
@@ -59,13 +62,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/").and().exceptionHandling()
                 .accessDeniedPage("/access-denied");
     }
-
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/login/**","/css/**", "/js/**", "/images/**","login/css/**", "login/js/**", "login/images/**");
+                .antMatchers("/resources/**", "/static/**","/folderforlogin/**", "/css/**", "/js/**", "/images/**");
     }
-
 
 }

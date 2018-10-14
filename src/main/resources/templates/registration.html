@@ -1,90 +1,155 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<title>Login V9</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="/folderforlogin/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/vendor/daterangepicker/daterangepicker.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="login/css/main.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/folderforlogin/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/folderforlogin/css/main.css}">
 <!--===============================================================================================-->
 </head>
 <body>
 	
 	
-	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+	<div class="container-login100" style="background-image: url('/folderforlogin/images/k2.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" th:action="@{/registration}" method="post" th:object="${user}">
-				<span class="login100-form-title p-b-37">
-					Sign In
+
+				<span class="login100-form-title p-b-37" id="tur">
+					Sign Up as Tourist
+				</span>
+				<span class="login100-form-title p-b-37" id="gid">
+					Sign Up as GID
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="username or email">
-					<span class="focus-input100"></span>
-				</div>
+				<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  class="validation-message"></label>
 
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
+				<div class="wrap-input100 validate-input m-b-20" >
+					<input class="input100" type="text" th:field="*{name}" name="name" placeholder="name">
 					<span class="focus-input100"></span>
 				</div>
+				<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="validation-message"></label>
+				<div class="wrap-input100 validate-input m-b-25">
+
+                    <input class="input100" type="text" name="lastname"  th:field="*{lastName}" placeholder="Last name">
+					<span class="focus-input100"></span>
+				</div>
+				<div id="tur1">
+					<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="validation-message"></label>
+					<div class="wrap-input100 validate-input m-b-25">
+						<input class="input100" type="text" name="lastname"  th:field="*{lastName}" placeholder="Country">
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+				<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"   class="validation-message"></label>
+
+				<div class="wrap-input100 validate-input m-b-25">
+                    <input class="input100" type="text" name="email"  th:field="*{email}" placeholder="Email">
+                    <span class="focus-input100"></span>
+                </div>
+				<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+                <div class="wrap-input100 validate-input m-b-25">
+                    <input class="input100" type="password" name="password"   th:field="*{password}" placeholder="Password">
+                    <span class="focus-input100"></span>
+                </div>
+
 
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn">
-						Sign In
+						Sign Up
 					</button>
 				</div>
-
+				<div class="text-center" id="gid2">
+					<span class="login100-form-title p-b-37" style="font-size: 23px;margin-top: 10px" id="tourist">
+						Sign Up as Tourist
+					</span>
+				</div>
+				<div class="text-center" id="tur2">
+					<span class="login100-form-title p-b-37" style="font-size: 23px;margin-top: 10px" id="gid1">
+						Sign Up as GID
+					</span>
+				</div>
 				<div class="text-center">
-					<a href="#" class="txt2 hov1">
-						Sign Up
+
+					<a th:href="@{/login}" class="txt2 hov1">
+						Sign In
 					</a>
 				</div>
+
+				<h4><span class="text-success" th:utext="${successMessage}"></span></h4>
+
 			</form>
 
 			
 		</div>
+
 	</div>
 	
 	
 
 	<div id="dropDownSelect1"></div>
-	
+	<script>
+        $(document).ready(function() {
+            $("#tur").hide();
+            $("#tur1").hide();
+            $("#tur2").hide();
+            $('#tourist').on('click', function () {
+                console.log("ffdv");
+                $("#gid").hide();
+                $("#gid2").hide();
+                $("#tur").show();
+                $("#tur1").show();
+                $("#tur2").show();
+            });
+            $('#gid1').on('click', function () {
+                console.log("ffdvgdfrsed");
+                $("#tur").hide();
+                $("#tur1").hide();
+                $("#tur2").hide();
+                $("#gid").show();
+                $("#gid2").show();
+
+            });
+        });
+	</script>
 <!--===============================================================================================-->
-	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="application/javascript" src="/folderforlogin/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="login/vendor/animsition/js/animsition.min.js"></script>
+	<script type="application/javascript" src="/folderforlogin/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="login/vendor/bootstrap/js/popper.js"></script>
-	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="application/javascript" src="/folderforlogin/vendor/bootstrap/js/popper.js"></script>
+	<script type="application/javascript" src="/folderforlogin/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="login/vendor/select2/select2.min.js"></script>
+	<script type="application/javascript" src="folderforlogin/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
+	<script type="application/javascript" src="/folderforlogin/vendor/daterangepicker/moment.min.js"></script>
+	<script type="application/javascript" src="/folderforlogin/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="login/vendor/countdowntime/countdowntime.js"></script>
+	<script type="application/javascript" src="/folderforlogin/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="login/js/main.js"></script>
+	<script type="application/javascript" src="/folderforlogin/js/main.js"></script>
 
 </body>
 </html>
