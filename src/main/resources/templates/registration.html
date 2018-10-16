@@ -36,7 +36,6 @@
 	<div class="container-login100" style="background-image: url('/folderforlogin/images/k2.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" th:action="@{/registration}" method="post" th:object="${user}">
-
 				<span class="login100-form-title p-b-37" id="tur">
 					Sign Up as Tourist
 				</span>
@@ -45,26 +44,42 @@
 				</span>
 
 				<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  class="validation-message"></label>
-
 				<div class="wrap-input100 validate-input m-b-20" >
-					<input class="input100" type="text" th:field="*{name}" name="name" placeholder="name">
-					<span class="focus-input100"></span>
-				</div>
-				<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="validation-message"></label>
-				<div class="wrap-input100 validate-input m-b-25">
-
-                    <input class="input100" type="text" name="lastname"  th:field="*{lastName}" placeholder="Last name">
+					<input class="input100" type="text" th:field="*{name}" name="name" placeholder="First name & last name">
 					<span class="focus-input100"></span>
 				</div>
 				<div id="tur1">
-					<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="validation-message"></label>
-					<div class="wrap-input100 validate-input m-b-25">
-						<input class="input100" type="text" name="lastname"  th:field="*{lastName}" placeholder="Country">
+					<div>
+						<input class="input100" type="text" name="country" th:field="*{country}" placeholder="Country">
 						<span class="focus-input100"></span>
 					</div>
 				</div>
-				<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"   class="validation-message"></label>
+				<div class="wrap-input100 validate-input m-b-25">
+					<input class="input100" type="text" name="language" th:field="*{languages}" placeholder="Languages">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-25">
+					<input class="input100" type="number" name="age"  th:field="*{age}" placeholder="Age">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-25">
+					<input class="input100" type="number" name="experience" th:field="*{experience}" placeholder="Experience">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-25">
+					<div class="col-xs-5 selectContainer">
+						<select class="form-control" th:field="*{gender}">
+							<option value="female">Female</option>
+							<option value="male">Male</option>
+						</select>
+					</div>
+				</div>
 
+				<div class="wrap-input100 validate-input m-b-25">
+					<textarea class="input100" type="text" name="aboutMe" th:field="*{aboutMe}" placeholder="About me"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"   class="validation-message"></label>
 				<div class="wrap-input100 validate-input m-b-25">
                     <input class="input100" type="text" name="email"  th:field="*{email}" placeholder="Email">
                     <span class="focus-input100"></span>
@@ -74,10 +89,8 @@
                     <input class="input100" type="password" name="password"   th:field="*{password}" placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
-
-
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
+					<button class="login100-form-btn" type="submit">
 						Sign Up
 					</button>
 				</div>
