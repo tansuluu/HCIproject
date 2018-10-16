@@ -52,8 +52,14 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
         } else {
-            userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
+            if (user.getCountry()==null) {
+                userService.saveUser(user, "GID");
+                modelAndView.addObject("successMessage", "User has been registered successfully as GID");
+            }
+            else {
+                userService.saveUser(user, "TOURIST");
+                modelAndView.addObject("successMessage", "User has been registered successfully as Tourist");
+            }
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
 
