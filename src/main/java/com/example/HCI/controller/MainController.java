@@ -11,7 +11,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(){
-        return "profile";
+        return "index";
     }
 }
 

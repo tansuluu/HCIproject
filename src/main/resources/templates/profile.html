@@ -51,26 +51,25 @@
                         </div>
                         <div class="col-md-7">
                             <div class="row person_details">
-                                <h3>Hi I'm <span>Ramirez Minita</span></h3>
-                                <h4>Web Designer and Web Developer</h4>
-                                <p>My name is Bernard Shelly. I am 32 years old. Lorem ipsum dolor sit amet, consectetur ascing elits, sed do eiusmod tempor incidunt ut labore et dolore mafgna aliqua. Ut enim ad mini vniam quis nerci, tation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis autes irure dolor in reprehenderit in etrs voluptate velit esse cillum dolore eu fugiat nulla pariatur. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                <h3>Hi I'm <span th:text="${user.name}"></span></h3>
+                                <p th:text="${user.aboutMe}"></p>
                                 <div class="person_information">
                                     <ul>
                                         <li><a href="#">Age</a></li>
-                                        <li><a href="#">Nationality</a></li>
-                                        <li><a href="#">Address</a></li>
+                                        <li><a href="#">Languages</a></li>
+                                        <li><a href="#">Country</a></li>
                                         <li><a href="#">Phone</a></li>
-                                        <li><a href="#">Skype</a></li>
+                                        <li><a href="#">Experience</a></li>
+                                        <li><a href="#">Gander</a></li>
                                         <li><a href="#">Email</a></li>
-                                        <li><a href="#">Website</a></li>
                                     </ul>
                                     <ul>
-                                        <li><a href="#">24</a></li>
-                                        <li><a href="#">Citizen of United States</a></li>
-                                        <li><a href="#">23 High Hope Blvd, Some City, Some Country</a></li>
-                                        <li><a href="#">+88 01911854378</a></li>
-                                        <li><a href="#">sumon.backpiper</a></li>
-                                        <li><a href="#">backpiper.com@gmail.com</a></li>
+                                        <li><a href="#" th:text="${user.age}">24</a></li>
+                                        <li><a href="#"th:text="${user.languages}"></a></li>
+                                        <li><a href="#" th:text="${user.country}"></a></li>
+                                        <li><a href="#" th:text="${user.experience}"></a></li>
+                                        <li><a href="#" th:text="${user.gender}"></a></li>
+                                        <li><a href="#"th:text="${user.email}"></a></li>
                                         <li><a href="www.topsmmpanel.com">www.topsmmpanel.com</a></li>
                                     </ul>
                                 </div>
@@ -500,77 +499,8 @@
                 <!--================End Map Area =================-->
             </div>
         </div>
-        <!--================End Total container Area =================-->
-        
-        <!--================footer Area =================-->
-        <footer class="footer_area">
-            <div class="footer_inner">
-                <div class="container">
-                    <img src="../../../../../ramirez/theme/img/footer-logo.png" alt="">
-                    <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                        <li><a href="#"><i class="fa fa-flickr"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer_copyright">
-                <div class="container">
-                    <div class="pull-left">
-                        <h5><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p></h5>
-                    </div>
-                    <div class="pull-right">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="#">ABOUT ME </a></li>
-                            <li><a href="#">Skill</a></li>
-                            <li><a href="#">Education</a></li>
-                            <li><a href="#">SERVICES</a></li>
-                            <li><a href="#">PORTFOLIO</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">CONTACT</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--================End footer Area =================-->
-        
-        <div class="envalab-style-switch" id="switch-style">
-            <div class="switch-button" id="toggle-switcher"><i class="fa fa-gears"></i></div>
-            <div class="switched-options">
-                <div class="config-title">Color Panel </div>
-                <ul class="styles">
-                    <li>
-                        <a href=# onclick='return setActiveStyleSheet("default"),!1' title="default"></a>
-                    </li>
-                    <li>
-                        <a href=# onclick='return setActiveStyleSheet("orange"),!1' title="orange"></a>
-                    </li>
-                    <li>
-                        <a href=# onclick='return setActiveStyleSheet("pink"),!1' title="pink"></a>
-                    </li>
-                    <li>
-                        <a href=# onclick='return setActiveStyleSheet("violet"),!1' title="violet"></a>
-                    </li>
-                    <li>
-                        <a href=# onclick='return setActiveStyleSheet("blue"),!1' title="blue"></a>
-                    </li>
-                    <li>
-                        <a href=# onclick='return setActiveStyleSheet("past"),!1' title="past"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <!--================End Total
+
         
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
