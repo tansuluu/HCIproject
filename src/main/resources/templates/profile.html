@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="folderforprofile/img/fav-icon.png" type="image/x-icon" />
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>RAMIREZ - Resume / CV / </title>
-
         <!-- Icon css link -->
         <link href="folderforprofile/vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
         <link href="folderforprofile/css/font-awesome.min.css" rel="stylesheet">
@@ -37,47 +38,8 @@
         <![endif]-->
     </head>
     <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80" data-scroll-animation="true">
-
-        <div id="preloader">
-            <div id="preloader_spinner">
-                <div class="spinner"></div>
-            </div>
-        </div>
-
-        <!--================ Frist hader Area =================-->
-        <header class="header_area">
-            <div class="container">
-                <nav class="navbar navbar-default">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="profile.html"><img src="folderforprofile/img/logo.png" alt=""></a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="#about">ABOUT ME </a></li>
-                            <li><a href="#skill">Skill</a></li>
-                            <li><a href="#education">Education</a></li>
-                            <li><a href="#service">SERVICES</a></li>
-                            <li><a href="#portfolio">PORTFOLIO</a></li>
-                            <li><a href="#news">News</a></li>
-                            <li><a href="#contact">CONTACT</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </nav>
-            </div>
-        </header>
-        <!--================End Footer Area =================-->
-        
         <!--================Total container Area =================-->
-        <div class="container main_container">
+        <div class="container main_container" th:object="${user}">
             <div class="content_inner_bg row m0">
                 <section class="about_person_area pad" id="about">
                     <div class="row">
