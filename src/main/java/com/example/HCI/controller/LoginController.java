@@ -62,8 +62,7 @@ public class LoginController {
                 storageService.saveAvatar(file);
                 user.setImage(file.getOriginalFilename());
             }
-            System.out.println(user.getCountry());
-            if (user.getCountry()==null) {
+            if (user.getCountry()==null || user.getCountry().equalsIgnoreCase("")) {
                 userService.saveUser(user, "GID");
                 modelAndView.addObject("successMessage", "User has been registered successfully as GID");
             }
