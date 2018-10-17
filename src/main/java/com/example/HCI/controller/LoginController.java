@@ -58,10 +58,11 @@ public class LoginController {
             modelAndView.setViewName("registration");
         } else {
             user.setImage("member.png");
-            if (!file.isEmpty()){
+            if (file!=null){
                 storageService.saveAvatar(file);
                 user.setImage(file.getOriginalFilename());
             }
+            System.out.println(user.getCountry());
             if (user.getCountry()==null) {
                 userService.saveUser(user, "GID");
                 modelAndView.addObject("successMessage", "User has been registered successfully as GID");
