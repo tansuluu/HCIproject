@@ -41,6 +41,8 @@ public class User {
     private int active;
     @Column(name = "age")
     private String age;
+    @Column(name = "image")
+    private String image;
     @Column(name = "experience")
     private String experience;
     @ManyToMany(cascade = CascadeType.ALL)
@@ -143,5 +145,12 @@ public class User {
         this.experience = experience;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
 

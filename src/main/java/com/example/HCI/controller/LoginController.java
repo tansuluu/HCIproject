@@ -2,6 +2,7 @@ package com.example.HCI.controller;
 
 
 import com.example.HCI.model.User;
+import com.example.HCI.service.StorageService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -19,6 +21,9 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 @Controller
 public class LoginController {
+
+    @Autowired
+    private StorageService storageService;
 
     @Autowired
     private UserService userService;
@@ -40,7 +45,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult,@RequestParam(name = "file",required = false)MultipartFile file) {
         ModelAndView modelAndView = new ModelAndView();
         System.out.println("hello");
         User userExists = userService.findUserByEmail(user.getEmail());
@@ -52,6 +57,11 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
         } else {
+            user.setImage("member.png");
+            if (!file.isEmpty()){
+                storageService.saveAvatar(file);
+                user.setImage(file.getOriginalFilename());
+            }
             if (user.getCountry()==null) {
                 userService.saveUser(user, "GID");
                 modelAndView.addObject("successMessage", "User has been registered successfully as GID");
