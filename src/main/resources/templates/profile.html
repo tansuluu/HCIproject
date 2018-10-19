@@ -6,59 +6,157 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="folderforprofile/img/fav-icon.png" type="image/x-icon" />
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>RAMIREZ - Resume / CV / </title>
+        <title>Profile</title>
         <!-- Icon css link -->
         <link href="folderforprofile/vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
         <link href="folderforprofile/css/font-awesome.min.css" rel="stylesheet">
         <link href="folderforprofile/vendors/linears-icon/style.css" rel="stylesheet">
         <!-- Bootstrap -->
         <link href="folderforprofile/css/bootstrap.min.css" rel="stylesheet">
-        
-        <!-- Extra plugin css -->
         <link href="folderforprofile/vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
         <link href="folderforprofile/vendors/animate-css/animate.css" rel="stylesheet">
-        
         <link href="folderforprofile/css/style.css" rel="stylesheet">
         <link href="folderforprofile/css/responsive.css" rel="stylesheet">
-        
         <link rel="stylesheet" href="folderforprofile/css/colors/default.css" title="default">
         <link rel="alternate stylesheet" href="folderforprofile/css/colors/orange.css" title="orange">
         <link rel="alternate stylesheet" href="folderforprofile/css/colors/pink.css" title="pink">
         <link rel="alternate stylesheet" href="folderforprofile/css/colors/violet.css" title="violet">
         <link rel="alternate stylesheet" href="folderforprofile/css/colors/blue.css" title="blue">
         <link rel="alternate stylesheet" href="folderforprofile/css/colors/past.css" title="past">
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="folderforindex/styles/bootstrap4/bootstrap.min.css">
+        <link href="folderforindex/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+        <link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/animate.css">
+        <link rel="stylesheet" type="text/css" href="folderforindex/styles/main_styles.css">
+        <link rel="stylesheet" type="text/css" href="folderforindex/styles/responsive.css">
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
+
     <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80" data-scroll-animation="true">
+    <header class="header">
+
+        <!-- Top Bar -->
+
+        <div class="top_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex flex-row">
+                        <div class="social">
+                            <ul class="social_list">
+
+                                <li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                                <li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="user_box ml-auto">
+                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></div>
+                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
+
+                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a></div>
+                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+
+        <nav class="main_nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
+                        <div class="logo_container">
+                            <div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
+                        </div>
+                        <div class="main_nav_container ml-auto">
+                            <ul class="main_nav_list">
+                                <li class="main_nav_item"><a th:href="@{/}">home</a></li>
+                                <li class="main_nav_item"><a th:href="@{/about}">about Almaty</a></li>
+                                <li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+                                <li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
+                                <li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="content_search ml-lg-0 ml-auto">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							width="17px" height="17px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+								<g>
+									<g>
+										<g>
+											<path class="mag_glass" fill="#FFFFFF" d="M78.438,216.78c0,57.906,22.55,112.343,63.493,153.287c40.945,40.944,95.383,63.494,153.287,63.494
+											s112.344-22.55,153.287-63.494C489.451,329.123,512,274.686,512,216.78c0-57.904-22.549-112.342-63.494-153.286
+											C407.563,22.549,353.124,0,295.219,0c-57.904,0-112.342,22.549-153.287,63.494C100.988,104.438,78.439,158.876,78.438,216.78z
+											M119.804,216.78c0-96.725,78.69-175.416,175.415-175.416s175.418,78.691,175.418,175.416
+											c0,96.725-78.691,175.416-175.416,175.416C198.495,392.195,119.804,313.505,119.804,216.78z"/>
+										</g>
+									</g>
+									<g>
+										<g>
+											<path class="mag_glass" fill="#FFFFFF" d="M6.057,505.942c4.038,4.039,9.332,6.058,14.625,6.058s10.587-2.019,14.625-6.058L171.268,369.98
+											c8.076-8.076,8.076-21.172,0-29.248c-8.076-8.078-21.172-8.078-29.249,0L6.057,476.693
+											C-2.019,484.77-2.019,497.865,6.057,505.942z"/>
+										</g>
+									</g>
+								</g>
+							</svg>
+                        </div>
+
+                        <form id="search_form" class="search_form bez_1">
+                            <input type="search" class="search_content_input bez_1">
+                        </form>
+
+                        <div class="hamburger">
+                            <i class="fa fa-bars trans_200"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="menu trans_500" >
+        <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+            <div class="menu_close_container"><div class="menu_close"></div></div>
+            <div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+            <ul>
+                <li class="menu_item"><a th:href="@{/}">home</a></li>
+                <li class="menu_item"><a th:href="@{/about}">about us</a></li>
+                <li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+                <li class="menu_item"><a th:href="@{/blog}">blog</a></li>
+                <li class="menu_item"><a th:href="@{/contact}">contact</a></li>
+            </ul>
+        </div>
+    </div>
         <!--================Total container Area =================-->
         <div class="container main_container" th:object="${user}">
             <div class="content_inner_bg row m0">
-                <section class="about_person_area pad" id="about">
+                <section class="about_person_area pad" style="padding-top: 120px" id="about">
                     <div class="row">
                         <div class="col-md-5">
                             <div class="person_img">
-                                <img src="../../../../../ramirez/theme/img/member/member-1.png" alt="">
-                                <a class="download_btn" href="#"><span>Download Resume</span></a>
+                                <img th:src="@{${user.image}}"alt="">
+                                <a class="download_btn" href="#" th:text="${user.name}"><span></span></a>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <div class="row person_details">
                                 <h3>Hi I'm <span th:text="${user.name}"></span></h3>
-                                <p th:text="${user.aboutMe}"></p>
+                                <p th:text="${user.aboutMe}" style="width: 100%"></p>
                                 <div class="person_information">
                                     <ul>
                                         <li><a href="#">Age</a></li>
                                         <li><a href="#">Languages</a></li>
                                         <li><a href="#">Country</a></li>
-                                        <li><a href="#">Phone</a></li>
                                         <li><a href="#">Experience</a></li>
                                         <li><a href="#">Gander</a></li>
                                         <li><a href="#">Email</a></li>
@@ -66,11 +164,10 @@
                                     <ul>
                                         <li><a href="#" th:text="${user.age}">24</a></li>
                                         <li><a href="#"th:text="${user.languages}"></a></li>
-                                        <li><a href="#" th:text="${user.country}"></a></li>
+                                        <li><a href="#" th:text="${user.country}">Kyrgystan</a></li>
                                         <li><a href="#" th:text="${user.experience}"></a></li>
                                         <li><a href="#" th:text="${user.gender}"></a></li>
                                         <li><a href="#"th:text="${user.email}"></a></li>
-                                        <li><a href="www.topsmmpanel.com">www.topsmmpanel.com</a></li>
                                     </ul>
                                 </div>
                                 <ul class="social_icon">
@@ -79,430 +176,192 @@
                                     <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section class="myskill_area pad" id="skill">
-                    <div class="main_title">
-                        <h2>My Skill</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 wow fadeInUp animated">
-                            <div class="skill_text">
-                                <h4>Web development Skills</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Loren Ipsum has been the industry's standard dummy text.</p>
-                            </div>
-                            <div class="skill_item_inner">
-                                <div class="single_skill">
-                                    <h4>Wordpress</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">85</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Php & MySQL</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">65</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Html & Css</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">75</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>JavaScript</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">95</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 wow fadeInUp animated">
-                            <div class="skill_text">
-                                <h4>Web Design Skills</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Loren Ipsum has been the industry's standard dummy text.</p>
-                            </div>
-                            <div class="skill_item_inner">
-                                <div class="single_skill">
-                                    <h4>Creative Design</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">85</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Photoshop</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">65</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Illustrator</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">75</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Photography</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">95</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="education_area pad" id="education">
-                    <div class="main_title">
-                        <h2>Education</h2>
-                    </div>
-                    <div class="education_inner_area">
-                        <div class="education_item wow fadeInUp animated" data-line="S">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="H">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="C">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="M">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="W">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                    </div>
-                </section>
-                <section class="service_area" id="service">
-                    <div class="main_title">
-                        <h2>SERVICES</h2>
-                    </div>
-                    <div class="service_inner row">
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-wordpress" aria-hidden="true"></i>
-                                <a href="#"><h4>Wordpress Development</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-paint-brush" aria-hidden="true"></i>
-                                <a href="#"><h4>Creative Design</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <a href="#"><h4>Mobile Apps Development</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-maxcdn" aria-hidden="true"></i>
-                                <a href="#"><h4>Social Media Marketing</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-camera" aria-hidden="true"></i>
-                                <a href="#"><h4>Professional Photography</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-laptop" aria-hidden="true"></i>
-                                <a href="#"><h4>Website Development</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="portfolio_area pad" id="portfolio">
-                    <div class="main_title">
-                        <h2>Portfolio</h2>
-                    </div>
-                    <div class="porfolio_menu">
-                        <ul class="causes_filter">
-                            <li class="active" data-filter="*"><a href="">All</a></li>
-                            <li data-filter=".photo"><a href="">Photography</a></li>
-                            <li data-filter=".design"><a href="">Design</a></li>
-                            <li data-filter=".marketing"><a href="">Marketing</a></li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <div class="portfolio_list_inner">
-                            <div class="col-md-4 photo marketing">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="../../../../../ramirez/theme/img/portfolio/portfolio-1.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 design">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="../../../../../ramirez/theme/img/portfolio/portfolio-2.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 photo marketing">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="../../../../../ramirez/theme/img/portfolio/portfolio-3.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 design marketing">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="../../../../../ramirez/theme/img/portfolio/portfolio-4.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 photo">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="../../../../../ramirez/theme/img/portfolio/portfolio-5.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 marketing">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="../../../../../ramirez/theme/img/portfolio/portfolio-6.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="news_area pad" id="news">
-                    <div class="main_title">
-                        <h2>News</h2>
-                    </div>
-                    <div class="news_inner_area">
+
+                <section class="comment-section center-text">
+                    <div class="container">
+                        <h4><b th:if="${#request.userPrincipal != null}">Write post</b></h4>
+                        <h4><b th:if="${#request.userPrincipal == null}">To add post, <a th:href="@{/login}">sign in</a></b></h4>
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="twitter_area wow fadeInLeft animated">
-                                    <div class="w_title">
-                                        <h3><i class="fa fa-twitter"></i>Twitter</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="blog_slider_area wow fadeInUp animated">
-                                    <div class="w_title">
-                                        <h3>Blog</h3>
-                                    </div>
-                                    <div class="blog_slider_inner">
-                                        <div class="item">
-                                            <img src="../../../../../ramirez/theme/img/blog/blog-1.jpg" alt="">
-                                            <a href="#"><h3>The Importance of User Experience</h3></a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>
-                                            <h5>Posted by <a href="http://rocky.obaidul.com">Rocky</a> at 04 Feb, 2017</h5>
-                                        </div>
-                                        <div class="item">
-                                            <img src="../../../../../ramirez/theme/img/blog/blog-2.jpg" alt="">
-                                            <a href="#"><h3>The Importance of User Experience</h3></a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>
-                                            <h5>Posted by <a href="http://rocky.obaidul.com">Rocky</a> at 04 Feb, 2017</h5>
-                                        </div>
-                                        <div class="item">
-                                            <img src="../../../../../ramirez/theme/img/blog/blog-3.jpg" alt="">
-                                            <a href="#"><h3>The Importance of User Experience</h3></a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>
-                                            <h5>Posted by <a href="http://rocky.obaidul.com">Rocky</a> at 04 Feb, 2017</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="instagram_area wow fadeInRight animated">
-                                    <div class="w_title">
-                                        <h3><i class="fa fa-instagram"></i>Instagram</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-1.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-2.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-3.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-4.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-5.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-6.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-7.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-8.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="../../../../../ramirez/theme/img/instagram/instagram-9.jpg" alt=""></a></li>
-                                    </ul>
-                                    <a class="follow_btn" href="#"><i class="fa fa-instagram"></i> Follow on Instagram</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="contact_area pad" id="contact">
-                    <div class="main_title">
-                        <h2>Contact Us</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="left_contact_details wow fadeInUp animated">
-                                <div class="contact_title">
-                                    <h3>Contact Info</h3>
-                                </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the et majori have suffered alteration in some form, by injected humour, Domised words which don't look even slightly believable. If you are going to use a pas of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-map-marker"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Address</h4>
-                                        <p>Freedom Way, Jersey City, NJ 07305, USA</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Skype</h4>
-                                        <p>sumon.backpiper</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-envelope-o"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Email</h4>
-                                        <p>backpiper.com@gmail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="contact_from_area wow fadeInUp animated">
-                                <div class="contact_title">
-                                    <h3>Send Message</h3>
-                                </div>
-                                <div class="row">
-                                    <form action="../../../../../ramirez/theme/contact_process.php" method="post" id="contactForm">
-                                        <div class="form-group col-md-12">
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="First Name*">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <input type="text" class="form-control" name="last" id="last" placeholder="Last Name*">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email*">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <textarea class="form-control" rows="1" id="message" name="message" placeholder="Write Message"></textarea>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <button class="btn btn-default contact_btn" type="submit"><span>Send Massage</span></button>
-                                        </div>
+
+                            <div class="col-lg-2 col-md-0"></div>
+
+                            <div class="col-lg-8 col-md-12"   >
+                                <div class="comment-form" th:if="${#request.userPrincipal != null}">
+                                    <form th:action="@{/newPost(username=${user.email})}" method="post">
+                                        <div class="row">
+                                            <a class="name" href="#"><b th:text="${'Write post as '+#request.userPrincipal.name}"></b></a>
+                                            <div class="col-sm-12">
+                                                <label th:if="${#fields.hasErrors('postText')}" th:errors="*{}" class="validation-message">
+                                                </label>
+                                                <textarea th:field="*{}" id="comments" rows="2" class="text-area-messge form-control"
+                                                          placeholder="Enter your comment"></textarea >
+
+                                            </div><!-- col-sm-12 -->
+                                            <div class="col-sm-12">
+                                                <button class="submit-btn" type="submit" id="form-submit"><b>POST</b></button>
+                                            </div><!-- col-sm-12 -->
+
+                                        </div><!-- row -->
                                     </form>
-                                    <div id="success">
-                                        <p>Your text message sent successfully!</p>
+                                </div><!-- comment-form -->
+
+
+
+                            </div><!-- col-lg-8 col-md-12 -->
+
+                        </div><!-- row -->
+
+                    </div><!-- container -->
+                </section>
+
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <!-- Footer Column -->
+                            <div class="col-lg-3 footer_column">
+                                <div class="footer_col">
+                                    <div class="footer_content footer_about">
+                                        <div class="logo_container footer_logo">
+                                            <div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
+                                        </div>
+                                        <p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.</p>
+                                        <ul class="footer_social_list">
+
+                                            <li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                            <li class="footer_social_item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="footer_social_item"><a href="#"><i class="fa fa-vk"></i></a></li>
+                                            <li class="footer_social_item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
                                     </div>
-                                    <div id="error">
-                                        <p>Sorry! Message not sent. Something went wrong!!</p>
+                                </div>
+                            </div>
+
+                            <!-- Footer Column -->
+                            <div class="col-lg-3 footer_column">
+                                <div class="footer_col">
+                                    <div class="footer_title">blog posts</div>
+                                    <div class="footer_content footer_blog">
+
+                                        <!-- Footer blog item -->
+                                        <div class="footer_blog_item clearfix">
+                                            <div class="footer_blog_image"><img src="images/footer_blog_1.jpg" alt="https://unsplash.com/@avidenov"></div>
+                                            <div class="footer_blog_content">
+                                                <div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+                                                <div class="footer_blog_date">Nov 29, 2017</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Footer blog item -->
+                                        <div class="footer_blog_item clearfix">
+                                            <div class="footer_blog_image"><img src="images/footer_blog_2.jpg" alt="https://unsplash.com/@deannaritchie"></div>
+                                            <div class="footer_blog_content">
+                                                <div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
+                                                <div class="footer_blog_date">Nov 29, 2017</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Footer blog item -->
+                                        <div class="footer_blog_item clearfix">
+                                            <div class="footer_blog_image"><img src="images/footer_blog_3.jpg" alt="https://unsplash.com/@bergeryap87"></div>
+                                            <div class="footer_blog_content">
+                                                <div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+                                                <div class="footer_blog_date">Nov 29, 2017</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer Column -->
+                            <div class="col-lg-3 footer_column">
+                                <div class="footer_col">
+                                    <div class="footer_title">tags</div>
+                                    <div class="footer_content footer_tags">
+                                        <ul class="tags_list clearfix">
+                                            <li class="tag_item"><a href="#">design</a></li>
+                                            <li class="tag_item"><a href="#">fashion</a></li>
+                                            <li class="tag_item"><a href="#">music</a></li>
+                                            <li class="tag_item"><a href="#">video</a></li>
+                                            <li class="tag_item"><a href="#">party</a></li>
+                                            <li class="tag_item"><a href="#">photography</a></li>
+                                            <li class="tag_item"><a href="#">adventure</a></li>
+                                            <li class="tag_item"><a href="#">travel</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer Column -->
+                            <div class="col-lg-3 footer_column">
+                                <div class="footer_col">
+                                    <div class="footer_title">contact info</div>
+                                    <div class="footer_content footer_contact">
+                                        <ul class="contact_info_list">
+                                            <li class="contact_info_item d-flex flex-row">
+                                                <div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
+                                                <div class="contact_info_text">7 Microdistrict, 11</div>
+                                            </li>
+                                            <li class="contact_info_item d-flex flex-row">
+                                                <div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
+                                                <div class="contact_info_text">+7 707 777 77 77</div>
+                                            </li>
+                                            <li class="contact_info_item d-flex flex-row">
+                                                <div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
+                                                <div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">opentravel@gmail.com</a></div>
+                                            </li>
+                                            <li class="contact_info_item d-flex flex-row">
+                                                <div><div class="contact_info_icon"><img src="images/planet-earth.svg" alt=""></div></div>
+                                                <div class="contact_info_text"><a href="https://colorlib.com">www.opentravel.com</a></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </footer>
+
+                <!-- Copyright -->
+
+                <div class="copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 order-lg-1 order-2  ">
+                                <div class="copyright_content d-flex flex-row align-items-center">
+                                    <div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 order-lg-2 order-1">
+                                <div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
+                                    <div class="footer_nav">
+                                        <ul class="footer_nav_list">
+                                            <li class="footer_nav_item"><a href="#">home</a></li>
+                                            <li class="footer_nav_item"><a href="about.html">about us</a></li>
+                                            <li class="footer_nav_item"><a href="offers.html">offers</a></li>
+                                            <li class="footer_nav_item"><a href="blog.html">news</a></li>
+                                            <li class="footer_nav_item"><a href="contact.html">contact</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-                <!--================Map Area =================-->
-                <div id="mapBox" class="mapBox row m0" 
-                data-lat="37.3818288" 
-                data-lon="-122.0658212" 
-                data-zoom="13"></div>
+                </div>
+
+            </div>
                 <!--================End Map Area =================-->
             </div>
         </div>
-        <!--================End Total
-
-        
-        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="folderforprofile/js/jquery-2.1.4.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -513,10 +372,10 @@
         <script src="folderforprofile/vendors/isotope/imagesloaded.pkgd.min.js"></script>
         <script src="folderforprofile/vendors/isotope/isotope.pkgd.min.js"></script>
         <script src="folderforprofile/vendors/owl-carousel/owl.carousel.min.js"></script>
-        
+
         <script src="folderforprofile/vendors/style-switcher/styleswitcher.js"></script>
         <script src="folderforprofile/vendors/style-switcher/switcher-active.js"></script>
-        
+
         <script src="folderforprofile/vendors/animate-css/wow.min.js"></script>
 
         <!--gmaps Js-->
@@ -529,5 +388,11 @@
         <script src="folderforprofile/js/contact.js"></script>
         
         <script src="folderforprofile/js/theme.js"></script>
+        <script src="folderforindex/js/jquery-3.2.1.min.js"></script>
+        <script src="folderforindex/styles/bootstrap4/popper.js"></script>
+        <script src="folderforindex/styles/bootstrap4/bootstrap.min.js"></script>
+        <script src="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+        <script src="folderforindex/plugins/easing/easing.js"></script>
+        <script src="folderforindex/js/custom.js"></script>
     </body>
 </html>

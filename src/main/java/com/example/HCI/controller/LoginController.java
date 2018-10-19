@@ -63,6 +63,7 @@ public class LoginController {
                 user.setImage(file.getOriginalFilename());
             }
             if (user.getCountry()==null || user.getCountry().equalsIgnoreCase("")) {
+                user.setCountry("Kyrgyzstan");
                 userService.saveUser(user, "GID");
                 modelAndView.addObject("successMessage", "User has been registered successfully as GID");
             }

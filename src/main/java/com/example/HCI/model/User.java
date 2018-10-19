@@ -8,8 +8,6 @@ import org.hibernate.validator.constraints.Length;
 
 import java.util.Set;
 
-
-
 @Entity
 @Table(name = "user")
 public class User {
@@ -146,7 +144,10 @@ public class User {
     }
 
     public String getImage() {
-        return image;
+        if(image.contains("http"))
+            return image;
+        else
+            return "/up-avatar/"+image;
     }
 
     public void setImage(String image) {

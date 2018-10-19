@@ -52,4 +52,17 @@ public class StorageService {
             throw new RuntimeException("FAIL!");
         }
     }
+    public Resource loadFile(String filename) {
+        try {
+            Path file = rootApp.resolve(filename);
+            Resource resource = new UrlResource(file.toUri());
+            if(resource.exists() || resource.isReadable()) {
+                return resource;
+            }else{
+                throw new RuntimeException("No such file!");
+            }
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("FAIL!");
+        }
+    }
 }
