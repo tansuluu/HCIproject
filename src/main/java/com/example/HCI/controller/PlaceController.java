@@ -73,24 +73,13 @@ public class PlaceController {
     @RequestMapping("/placeInfo")
     public String showApplications(Model model, @RequestParam("id")long id, Principal principal){
         Place place=placeService.updateView(id);
-        List<Comment> list=commentService.findCommentsById_place(id);
-        List<Place> popular=placeDAO.findPopular();
+        List<Comment> list=commentService.getCommentsById_place(id);
+        List<Place> popular=placeService.getAllByOrderByView();
         model.addAttribute("comments",list);
         model.addAttribute("app",place);
         model.addAttribute("popular",popular);
         Comment comment=new Comment();
         model.addAttribute("comment",comment);
-        try {
-            System.out.println(principal.getName());
-            if (principal.getName() != null) {
-                if (likeDAO.hasPut(principal.getName(),id)) {
-                    model.addAttribute("trueFalse", "yes");
-                }
-                else model.addAttribute("trueFalse", "no" );
-            }
-        }catch (Exception e){
-            System.out.println("error");
-        }
         return "places";
     }
 }

@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-@Repository("PlaceRepositoty")
+@Repository
 public interface PlaceRepositoty extends JpaRepository<Place,Long> {
     Place findById(long id);
-    List<Place> getFirst
+    List<Place> getAllByOrderByView();
+
 }
