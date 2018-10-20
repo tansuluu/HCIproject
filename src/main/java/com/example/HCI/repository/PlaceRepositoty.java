@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
-@Repository("PlaceRepositoty")
+@Repository("placeRepositoty")
 public interface PlaceRepositoty extends JpaRepository<Place,Long> {
+
 }

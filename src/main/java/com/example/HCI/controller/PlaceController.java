@@ -2,6 +2,7 @@ package com.example.HCI.controller;
 
 
 import com.example.HCI.model.Place;
+import com.example.HCI.repository.PlaceRepositoty;
 import com.example.HCI.service.StorageService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 @Transactional
 public class PlaceController {
-
+    @Autowired
+    PlaceRepositoty placeRepositoty;
     @Autowired
     StorageService storageService;
 
@@ -36,26 +39,50 @@ public class PlaceController {
     }
 
     @RequestMapping(value = "/newPlace", method = RequestMethod.POST)
-    public String saveRegister(@ModelAttribute("place")@Valid Place app,
+    public String saveRegister(@ModelAttribute("place")@Valid Place place,
                                BindingResult result, Model model, //
                                Principal principal, @RequestParam(name = "file1", required = false)MultipartFile file1,
                                @RequestParam(name = "file2", required = false)MultipartFile file2, @RequestParam(name = "file3", required = false)MultipartFile file3) {
         if (result.hasErrors()) {
-            model.addAttribute("place", app);
+            model.addAttribute("place", place);
             return "newPlace";
         }
         try {
-            app=storageService.preStore(file1,file2,file3,app);
+            place=storageService.preStore(file1,file2,file3,place);
             userService.findUserByEmail(principal.getName());
-            app.setUsarname(principal.getName());
-            addPlace(app);
+            place.setUsarname(principal.getName());
+            placeRepositoty.save(place);
         } catch (Exception e) {
             model.addAttribute("errorMessage", "Error: " + e.getMessage());
-            model.addAttribute("place", app);
+            model.addAttribute("place", place);
             model.addAttribute("message","There is already exist such image");
             return "newPlace";
         }
 
         return "redirect:/userPage?username="+principal.getName();
+    }
+
+    @RequestMapping("/placeInfo")
+    public String showApplications(Model model, @RequestParam("id")long id, Principal principal){
+        Place ap=placeDAO.updateView(id,1);
+        List<Comment> list=commentDAO.findComment(id);
+        List<Place> popular=placeDAO.findPopular();
+        model.addAttribute("comments",list);
+        model.addAttribute("app",ap);
+        model.addAttribute("popular",popular);
+        Comment comment=new Comment();
+        model.addAttribute("comment",comment);
+        try {
+            System.out.println(principal.getName());
+            if (principal.getName() != null) {
+                if (likeDAO.hasPut(principal.getName(),id)) {
+                    model.addAttribute("trueFalse", "yes");
+                }
+                else model.addAttribute("trueFalse", "no" );
+            }
+        }catch (Exception e){
+            System.out.println("error");
+        }
+        return "places";
     }
 }
