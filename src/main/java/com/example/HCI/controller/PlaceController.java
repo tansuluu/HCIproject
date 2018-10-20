@@ -1,8 +1,11 @@
 package com.example.HCI.controller;
 
 
+import com.example.HCI.model.Comment;
 import com.example.HCI.model.Place;
 import com.example.HCI.repository.PlaceRepositoty;
+import com.example.HCI.service.CommentService;
+import com.example.HCI.service.PlaceService;
 import com.example.HCI.service.StorageService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +26,18 @@ import java.util.List;
 @Controller
 @Transactional
 public class PlaceController {
+
     @Autowired
-    PlaceRepositoty placeRepositoty;
+    PlaceService placeService;
+
     @Autowired
     StorageService storageService;
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    CommentService commentService;
 
     @RequestMapping(value = "/newPlace", method = RequestMethod.GET)
     public String newPlace(Model model) {
@@ -51,7 +59,7 @@ public class PlaceController {
             place=storageService.preStore(file1,file2,file3,place);
             userService.findUserByEmail(principal.getName());
             place.setUsarname(principal.getName());
-            placeRepositoty.save(place);
+            placeService.save(place);
         } catch (Exception e) {
             model.addAttribute("errorMessage", "Error: " + e.getMessage());
             model.addAttribute("place", place);
@@ -64,11 +72,11 @@ public class PlaceController {
 
     @RequestMapping("/placeInfo")
     public String showApplications(Model model, @RequestParam("id")long id, Principal principal){
-        Place ap=placeDAO.updateView(id,1);
-        List<Comment> list=commentDAO.findComment(id);
+        Place place=placeService.updateView(id);
+        List<Comment> list=commentService.findCommentsById_place(id);
         List<Place> popular=placeDAO.findPopular();
         model.addAttribute("comments",list);
-        model.addAttribute("app",ap);
+        model.addAttribute("app",place);
         model.addAttribute("popular",popular);
         Comment comment=new Comment();
         model.addAttribute("comment",comment);

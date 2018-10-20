@@ -12,7 +12,7 @@ public class Place {
         @Id
         @GeneratedValue
         @Column(name = "id", nullable = false)
-        private Long id;
+        private long id;
         @Column(name = "title", length = 128)
         @NotEmpty(message = "*Please provide a title")
         private String title;
