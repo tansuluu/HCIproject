@@ -1,4 +1,10 @@
 package com.example.HCI.repository;
 
-public interface PlaceRepositoty {
+import com.example.HCI.model.Place;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+
+@Repository("PlaceRepositoty")
+public interface PlaceRepositoty extends JpaRepository<Place,Long> {
 }
