@@ -1,6 +1,7 @@
 package com.example.HCI.service;
 
 
+import com.example.HCI.model.Place;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -64,5 +65,19 @@ public class StorageService {
         } catch (MalformedURLException e) {
             throw new RuntimeException("FAIL!");
         }
+    }
+    public Place preStore(MultipartFile f1, MultipartFile f2, MultipartFile f3, Place app){
+        if(!f1.isEmpty()){
+            app.setPhoto1(f1.getOriginalFilename());
+            store(f1);}
+        else
+            app.setPhoto1("lostfound-share.jpg");
+        if(!f2.isEmpty()){
+            app.setPhoto2(f2.getOriginalFilename());
+            store(f2);}
+        if(!f3.isEmpty()) {
+            app.setPhoto3(f3.getOriginalFilename());
+            store(f3);}
+        return app;
     }
 }
