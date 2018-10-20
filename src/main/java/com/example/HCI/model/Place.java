@@ -5,12 +5,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "place")
 public class Place {
-
-    @Entity
-    @Table(name = "place")
-
-    public class Place {
 
         @Id
         @GeneratedValue
