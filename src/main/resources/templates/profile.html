@@ -33,6 +33,10 @@
         <link rel="stylesheet" type="text/css" href="folderforindex/styles/responsive.css">
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/bootstrap.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/ionicons.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/styles.css}" />
+    <link rel="stylesheet" type="text/html" th:href="@{/folderforindex/css/responsive.css}" />
         <![endif]-->
     </head>
 
@@ -177,11 +181,48 @@
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
+                                <div sec:authorize="hasRole('ROLE_USER')" th:if="${#request.userPrincipal!=null}">
+                                    <a  th:if="${user.userName==#request.userPrincipal.name}"
+                                        class="load-more-btn" th:href="@{/updateUser(id=${user.userId})}"><b>UPDATE</b></a>
+                                    <a class="load-more-btn" th:href="@{/newPlace}"><b>NEW PLACE</b></a><br>
+                                    <a class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a>
+                                </div>
+                                <div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <a class="load-more-btn" th:href="@{/updateUser(id=${user.userId})}"><b>UPDATE USER</b></a><br>
+                                    <a class="load-more-btn" th:href="@{/deleteUser(id=${user.userId})}"><b>DELETE USER</b></a>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                <section class="recomended-area section">
+                    <h2 style="color: #0275d8; padding-bottom: 20px; font-family: 'Maven Pro', sans-serif " th:text="${user.userName+' posts'}"></h2>
+                    <div class="container" >
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6" th:each="app1:${places}">
+                                <div class="card h-100">
+                                    <div class="single-post post-style-1">
 
+                                        <div class="blog-image"><img th:if="${app1.getPhoto1()}!=null" th:src="@{${'/image/'+app1.photo1}}" alt="Blog Image"></div>
+                                        <div class="blog-info">
+                                            <h4 class="title"><a th:href="@{/placeInfo(id=${app1.id})}" ><b th:text="${app1.title}"></b></a></h4>
+
+                                            <div id = "Tansulu_kreative">
+                                                <ul class="post-footer">
+                                                    <li><a th:href="@{/placeInfo(id=${app1.id})}"  th:text="${' '+app1.likes}" class="ion-heart"></a></li>
+                                                    <li><a th:href="@{/placeInfo(id=${app1.id})}"  th:text="${' '+app1.comNumber}" class="ion-chatbubble"></a></li>
+                                                    <li><a th:href="@{/placeInfo(id=${app1.id})}"  th:text="${' '+app1.view}" class="ion-eye"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- blog-info -->
+                                    </div><!-- single-post -->
+                                </div><!-- card -->
+                            </div><!-- col-md-6 col-sm-12 -->
+                        </div><!-- row -->
+
+                    </div><!-- container -->
+                </section>
                 <section class="comment-section center-text">
                     <div class="container">
                         <h4><b th:if="${#request.userPrincipal != null}">Write post</b></h4>
@@ -192,7 +233,7 @@
 
                             <div class="col-lg-8 col-md-12"   >
                                 <div class="comment-form" th:if="${#request.userPrincipal != null}">
-                                    <form th:action="@{/newPost(username=${user.email})}" method="post">
+                                    <form th:action="@{/newPost(username=${user.email})}" method="post" th:object="${post}">
                                         <div class="row">
                                             <a class="name" href="#"><b th:text="${'Write post as '+#request.userPrincipal.name}"></b></a>
                                             <div class="col-sm-12">
@@ -209,7 +250,30 @@
                                         </div><!-- row -->
                                     </form>
                                 </div><!-- comment-form -->
+                                <div class="commnets-area text-left" >
 
+                                    <div class="comment" th:each="post: ${posts}">
+
+                                        <div class="post-info">
+
+                                            <div class="left-area">
+                                                <a class="avatar" href="#"><img th:src="@{${post.image}}" alt="Profile Image"></a>
+                                            </div>
+
+                                            <div class="middle-area">
+                                                <a class="name" th:href="@{/userPage(username=${post.username})}"><b th:text="${post.username}"></b></a>
+                                                <h6 class="date" th:text="${'on '+post.datePost}"></h6>
+                                            </div>
+                                            <div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <a th:href="@{/deletePost(id=${post.id},username=${post.user})}"><img  src="images/trash.png" style="width: 30px" alt="Profile Image"></a>
+                                            </div>
+
+                                        </div><!-- post-info -->
+
+                                        <p th:text="${post.postText}"></p>
+
+                                    </div>
+                                </div>
 
 
                             </div><!-- col-lg-8 col-md-12 -->
@@ -394,5 +458,12 @@
         <script src="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
         <script src="folderforindex/plugins/easing/easing.js"></script>
         <script src="folderforindex/js/custom.js"></script>
+    <script src="folderforindex/common-js/jquery-3.1.1.min.js"></script>
+
+    <script src="folderforindex/common-js/tether.min.js"></script>
+
+    <script src="folderforindex/common-js/bootstrap.js"></script>
+
+    <script src="folderforindex/common-js/scripts.js"></script>
     </body>
 </html>
