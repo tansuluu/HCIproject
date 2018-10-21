@@ -43,5 +43,11 @@ public class PlaceService {
     public List<Place> findByUsarname(String username){
         return placeRepositoty.findByUsarname(username);
     }
+    public Place updateLikes(long id, int n){
+        Place place=findById(id);
+        place.setView(place.getView()-1);
+        place.setLikes(place.getLikes()+n);
+        return place;
+    }
 
 }

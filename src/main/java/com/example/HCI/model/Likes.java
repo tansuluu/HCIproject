@@ -12,15 +12,15 @@ public class Likes {
     private long id;
     @Column(name = "username",length = 128)
     private String username;
-    @Column(name = "app_id")
-    private long app_id;
+    @Column(name = "appId")
+    private long appId;
 
     public Likes() {
     }
 
     public Likes(String username, long app_id) {
         this.username = username;
-        this.app_id = app_id;
+        this.appId = app_id;
     }
 
     public long getId() {
@@ -39,11 +39,11 @@ public class Likes {
         this.username = username;
     }
 
-    public long getApp_id() {
-        return app_id;
+    public long getAppId() {
+        return appId;
     }
 
-    public void setApp_id(long app_id) {
-        this.app_id = app_id;
+    public void setAppId(long appId) {
+        this.appId = appId;
     }
 }

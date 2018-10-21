@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository("LikeRepository")
 public interface LikeRepository extends JpaRepository<Likes,Long>{
+    Likes removeByUsernameAndAppId(String name,long id);
 }
