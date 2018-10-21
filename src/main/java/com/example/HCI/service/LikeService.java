@@ -16,7 +16,12 @@ public class LikeService {
         return likeRepository.save(likes);
     }
 
-    public Likes removeByUsernameAndAppId(String name,long id){
-        return likeRepository.removeByUsernameAndAppId(name,id);
+    public int removeByUsernameAndAppId(String name,long id){
+            return likeRepository.removeByUsernameAndAppId(name,id);
+
+    }
+
+    public boolean existsByAppIdAndUsername(long id, String name){
+        return likeRepository.existsByAppIdAndUsername(id,name);
     }
 }

@@ -2,12 +2,10 @@ package com.example.HCI.controller;
 
 
 import com.example.HCI.model.Comment;
+import com.example.HCI.model.Likes;
 import com.example.HCI.model.Place;
 import com.example.HCI.repository.PlaceRepositoty;
-import com.example.HCI.service.CommentService;
-import com.example.HCI.service.PlaceService;
-import com.example.HCI.service.StorageService;
-import com.example.HCI.service.UserService;
+import com.example.HCI.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +36,9 @@ public class PlaceController {
 
     @Autowired
     CommentService commentService;
+
+    @Autowired
+    LikeService likeService;
 
     @RequestMapping(value = "/newPlace", method = RequestMethod.GET)
     public String newPlace(Model model) {
@@ -80,6 +81,17 @@ public class PlaceController {
         model.addAttribute("popular",popular);
         Comment comment=new Comment();
         model.addAttribute("comment",comment);
+        try {
+            System.out.println(principal.getName());
+            if (principal.getName() != null) {
+                if (likeService.existsByAppIdAndUsername(id,principal.getName())) {
+                    model.addAttribute("trueFalse", "yes");
+                }
+                else model.addAttribute("trueFalse", "no" );
+            }
+        }catch (Exception e){
+            System.out.println("error");
+        }
         return "places";
     }
 }

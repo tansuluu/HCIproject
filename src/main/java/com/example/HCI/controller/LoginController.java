@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
+@Transactional
 @Controller
 public class LoginController {
 
