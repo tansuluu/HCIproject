@@ -2,6 +2,7 @@ package com.example.HCI.controller;
 
 import com.example.HCI.model.Comment;
 import com.example.HCI.service.CommentService;
+import com.example.HCI.service.PlaceService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    PlaceService placeService;
+
     @RequestMapping(value = "/newComment", method = RequestMethod.POST)
     public String saveComment(@ModelAttribute("comment") @Valid Comment comment, BindingResult result, Principal principal, @RequestParam("appId") long appId){
         if (result.hasErrors()) {
@@ -34,7 +38,14 @@ public class CommentController {
         comment.setIdPlace(appId);
         comment.setImage(userService.findUserByEmail(principal.getName()).getImage());
         commentService.save(comment);
-        placeDAO.updateCommentNum(comment.getId_place(),1);
+        placeService.updateCommentNum(comment.getIdPlace(),1);
         return "redirect:/placeInfo?id="+appId+"#comment";
+    }
+
+    @RequestMapping("/deleteComment")
+    public String deleteComment(@RequestParam("id") long id, @RequestParam("apId") long appId){
+        placeService.updateCommentNum(appId,-1);
+        commentService.deleteById(id);
+        return "redirect:/appInfo?id="+appId+"#comment";
     }
 }

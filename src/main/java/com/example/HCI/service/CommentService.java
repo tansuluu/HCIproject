@@ -1,6 +1,7 @@
 package com.example.HCI.service;
 
 import com.example.HCI.model.Comment;
+import com.example.HCI.model.Place;
 import com.example.HCI.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class CommentService {
 
     public Comment findById(long id){
         return commentRepository.findById(id);
+    }
+
+    public int deleteById(long id){
+        return commentRepository.deleteById(id);
     }
 
 }

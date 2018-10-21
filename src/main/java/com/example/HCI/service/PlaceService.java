@@ -23,7 +23,7 @@ public class PlaceService {
     public Place updateView(long id){
         Place place=findById(id);
         place.setView(place.getView()+1);
-        return place;
+        return save(place);
     }
 
     public Place save(Place place){
@@ -45,7 +45,13 @@ public class PlaceService {
         Place place=findById(id);
         place.setView(place.getView()-1);
         place.setLikes(place.getLikes()+n);
-        return place;
+        return save(place);
+    }
+    public Place updateCommentNum(long id,int n){
+        Place place=findById(id);
+        place.setView(place.getView()-1);
+        place.setComNumber(place.getComNumber()+n);
+        return save(place);
     }
 
 }
