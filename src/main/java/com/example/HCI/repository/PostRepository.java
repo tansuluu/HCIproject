@@ -10,4 +10,5 @@ import java.util.List;
 @Repository("PostRepository")
 public interface PostRepository extends JpaRepository<Post,Long>{
     List<Post> findAllByUser(String name);
+    int deleteById(long id);
 }
