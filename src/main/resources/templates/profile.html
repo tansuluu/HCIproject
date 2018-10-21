@@ -182,14 +182,14 @@
                                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
                                 <div sec:authorize="hasRole('ROLE_USER')" th:if="${#request.userPrincipal!=null}">
-                                    <a  th:if="${user.userName==#request.userPrincipal.name}"
-                                        class="load-more-btn" th:href="@{/updateUser(id=${user.userId})}"><b>UPDATE</b></a>
+                                    <a  th:if="${user.email==#request.userPrincipal.name}"
+                                        class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE</b></a>
                                     <a class="load-more-btn" th:href="@{/newPlace}"><b>NEW PLACE</b></a><br>
                                     <a class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a>
                                 </div>
                                 <div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
-                                    <a class="load-more-btn" th:href="@{/updateUser(id=${user.userId})}"><b>UPDATE USER</b></a><br>
-                                    <a class="load-more-btn" th:href="@{/deleteUser(id=${user.userId})}"><b>DELETE USER</b></a>
+                                    <a class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE USER</b></a><br>
+                                    <a class="load-more-btn" th:href="@{/deleteUser(id=${user.id})}"><b>DELETE USER</b></a>
 
                                 </div>
                             </div>
@@ -197,7 +197,7 @@
                     </div>
                 </section>
                 <section class="recomended-area section">
-                    <h2 style="color: #0275d8; padding-bottom: 20px; font-family: 'Maven Pro', sans-serif " th:text="${user.userName+' posts'}"></h2>
+                    <h2 style="color: #0275d8; padding-bottom: 20px; font-family: 'Maven Pro', sans-serif " th:text="${user.email+' posts'}"></h2>
                     <div class="container" >
                         <div class="row">
                             <div class="col-lg-4 col-md-6" th:each="app1:${places}">
@@ -282,7 +282,7 @@
 
                     </div><!-- container -->
                 </section>
-
+            </div>
                 <footer class="footer">
                     <div class="container">
                         <div class="row">
@@ -422,7 +422,7 @@
                     </div>
                 </div>
 
-            </div>
+
                 <!--================End Map Area =================-->
             </div>
         </div>
