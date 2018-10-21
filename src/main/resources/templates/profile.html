@@ -196,9 +196,9 @@
                                         <div class="row">
                                             <a class="name" href="#"><b th:text="${'Write post as '+#request.userPrincipal.name}"></b></a>
                                             <div class="col-sm-12">
-                                                <label th:if="${#fields.hasErrors('postText')}" th:errors="*{}" class="validation-message">
+                                                <label th:if="${#fields.hasErrors('postText')}" th:errors="*{postText}" class="validation-message">
                                                 </label>
-                                                <textarea th:field="*{}" id="comments" rows="2" class="text-area-messge form-control"
+                                                <textarea th:field="*{postText}" id="comments" rows="2" class="text-area-messge form-control"
                                                           placeholder="Enter your comment"></textarea >
 
                                             </div><!-- col-sm-12 -->

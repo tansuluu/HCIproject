@@ -1,6 +1,10 @@
 package com.example.HCI.controller;
 
+import com.example.HCI.model.Place;
+import com.example.HCI.model.Post;
 import com.example.HCI.model.User;
+import com.example.HCI.service.PlaceService;
+import com.example.HCI.service.PostService;
 import com.example.HCI.service.StorageService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +30,20 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    PlaceService placeService;
+
+    @Autowired
+    PostService postService;
+
     @RequestMapping("/userPage")
     public String showUser(Model model, @RequestParam("username")String email){
         User user=userService.findUserByEmail(email);
+        List<Place> list=placeService.findByUsarname(email);
+        model.addAttribute("places",list);
+        model.addAttribute("post",new Post());
         model.addAttribute("user",user);
+        model.addAttribute("posts",postService.findAllByUser(email));
         return "profile";
     }
     @GetMapping("/image/{filename:.+}")

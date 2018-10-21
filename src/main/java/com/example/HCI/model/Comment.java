@@ -15,8 +15,8 @@ public class Comment {
     private long id;
     @Column(name = "username")
     private String username;
-    @Column(name = "id_place")
-    private long id_place;
+    @Column(name = "idPlace")
+    private long idPlace;
     @Column(name = "text")
     @NotEmpty(message = "*Please write comment")
     private String comentText;
@@ -31,7 +31,7 @@ public class Comment {
 
     public Comment(String username, long id_place, String comentText) {
         this.username = username;
-        this.id_place = id_place;
+        this.idPlace = id_place;
         this.comentText = comentText;
     }
 
@@ -51,12 +51,12 @@ public class Comment {
         this.username = username;
     }
 
-    public long getId_place() {
-        return id_place;
+    public long getIdPlace() {
+        return idPlace;
     }
 
-    public void setId_place(long id_place) {
-        this.id_place = id_place;
+    public void setIdPlace(long idPlace) {
+        this.idPlace = idPlace;
     }
 
     public String getComentText() {

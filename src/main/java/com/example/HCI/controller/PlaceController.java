@@ -73,8 +73,8 @@ public class PlaceController {
     @RequestMapping("/placeInfo")
     public String showApplications(Model model, @RequestParam("id")long id, Principal principal){
         Place place=placeService.updateView(id);
-        List<Comment> list=commentService.getCommentsById_place(id);
-        List<Place> popular=placeService.getAllByOrderByView();
+        List<Comment> list=commentService.getAllByIdPlace(id);
+        List<Place> popular=placeService.getTop3PlaceByOrderByView();
         model.addAttribute("comments",list);
         model.addAttribute("app",place);
         model.addAttribute("popular",popular);

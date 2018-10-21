@@ -7,6 +7,8 @@ import com.example.HCI.repository.PlaceRepositoty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Service("PlaceService")
@@ -25,11 +27,21 @@ public class PlaceService {
     }
 
     public Place save(Place place){
+        place.setDate(Calendar.getInstance().getTime());
         return placeRepositoty.save(place);
     }
 
-    public List<Place> getAllByOrderByView(){
-        return placeRepositoty.getAllByOrderByView();
+    public List<Place> getTop3PlaceByOrderByView(){
+        List<Place> list=placeRepositoty.getAllByOrderByView();
+        List<Place> listTop=new ArrayList<>();
+        listTop.add(list.get(0));
+        listTop.add(list.get(1));
+        listTop.add(list.get(2));
+        return listTop;
+    }
+
+    public List<Place> findByUsarname(String username){
+        return placeRepositoty.findByUsarname(username);
     }
 
 }

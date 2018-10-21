@@ -71,7 +71,7 @@ public class StorageService {
             app.setPhoto1(f1.getOriginalFilename());
             store(f1);}
         else
-            app.setPhoto1("lostfound-share.jpg");
+            app.setPhoto1("tur.jpg");
         if(!f2.isEmpty()){
             app.setPhoto2(f2.getOriginalFilename());
             store(f2);}

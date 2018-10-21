@@ -25,6 +25,12 @@
     <link rel="stylesheet" type="text/css" href="folderforindex/vendor2/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="folderforindex/styles/util.css">
     <link rel="stylesheet" type="text/css" href="folderforindex/styles/main.css">
+    <link href="folderforindex/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="folderforindex/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="folderforindex/styles/responsive.css">
 
 </head>
 
@@ -134,19 +140,7 @@
             </ul>
         </div>
     </div>
-
-    <div class="col-lg-4 intro_col">
-        <div class="intro_item">
-            <div class="intro_item_overlay"></div>
-            <!-- Image by https://unsplash.com/@hellolightbulb -->
-            <div class="intro_item_background" style="background-image:url(../static/folderforindex/images/intro_2.jpg)"></div>
-            <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-
-                <div class="button intro_button"><div class="button_bcg"></div><a href="file:///Users/macbook/Downloads/travelix/about.html">see more</div>
-            </div>
-        </div>
-    </div>
-    <div class="container-login100" style="background-image: url('../static/folderforindex/images/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url('folderforindex/images/bg-01.jpg');">
         <div class="wrap-login101 p-l-55 p-r-55 p-t-65 p-b-54">
             <form th:action="@{/newPlace}" enctype="multipart/form-data" th:object="${place}" method="post" class="login100-form validate-form">
                 <div class="form-group">
