@@ -13,11 +13,11 @@
         <link href="folderforprofile/css/font-awesome.min.css" rel="stylesheet">
         <link href="folderforprofile/vendors/linears-icon/style.css" rel="stylesheet">
         <!-- Bootstrap -->
-        <link href="folderforprofile/css/bootstrap.min.css" rel="stylesheet">
-        <link href="folderforprofile/vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
-        <link href="folderforprofile/vendors/animate-css/animate.css" rel="stylesheet">
-        <link href="folderforprofile/css/style.css" rel="stylesheet">
-        <link href="folderforprofile/css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/bootstrap.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/ionicons.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/st.css}" />
+    <link rel="stylesheet" type="text/html" th:href="@{/folderforindex/css/responsive.css}" />
+
         <link rel="stylesheet" href="folderforprofile/css/colors/default.css" title="default">
         <link rel="alternate stylesheet" href="folderforprofile/css/colors/orange.css" title="orange">
         <link rel="alternate stylesheet" href="folderforprofile/css/colors/pink.css" title="pink">
@@ -33,11 +33,11 @@
         <link rel="stylesheet" type="text/css" href="folderforindex/styles/responsive.css">
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/bootstrap.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/ionicons.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/styles.css}" />
-    <link rel="stylesheet" type="text/html" th:href="@{/folderforindex/css/responsive.css}" />
-        <![endif]-->
+    <link href="folderforprofile/css/bootstrap.min.css" rel="stylesheet">
+    <link href="folderforprofile/vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+    <link href="folderforprofile/vendors/animate-css/animate.css" rel="stylesheet">
+    <link href="folderforprofile/css/style.css" rel="stylesheet">
+    <link href="folderforprofile/css/responsive.css" rel="stylesheet">
     </head>
 
     <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80" data-scroll-animation="true">
@@ -181,13 +181,13 @@
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
-                                <div sec:authorize="hasRole('ROLE_USER')" th:if="${#request.userPrincipal!=null}">
+                                <div sec:authorize="hasAuthority('GID')" th:if="${#request.userPrincipal!=null}">
                                     <a  th:if="${user.email==#request.userPrincipal.name}"
                                         class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE</b></a>
                                     <a class="load-more-btn" th:href="@{/newPlace}"><b>NEW PLACE</b></a><br>
                                     <a class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a>
                                 </div>
-                                <div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <div class="right-area" sec:authorize="hasAuthority('TOURIST')">
                                     <a class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE USER</b></a><br>
                                     <a class="load-more-btn" th:href="@{/deleteUser(id=${user.id})}"><b>DELETE USER</b></a>
 

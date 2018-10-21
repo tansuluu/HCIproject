@@ -35,8 +35,6 @@ public class PlaceService {
         List<Place> list=placeRepositoty.getAllByOrderByView();
         List<Place> listTop=new ArrayList<>();
         listTop.add(list.get(0));
-        listTop.add(list.get(1));
-        listTop.add(list.get(2));
         return listTop;
     }
 
