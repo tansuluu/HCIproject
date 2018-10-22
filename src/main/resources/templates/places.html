@@ -429,7 +429,7 @@
         th:href="@{/addLike(id=${app.id},username=${#request.userPrincipal.name})}"
         console.log("fdhjckddmvnj");
         $.ajax({
-            url: "http://localhost:8080/getFeedBack",
+            url: "/addLike",
             type: "GET",
             data: ({text: text,feedback:feedback,id:id}),
             dataType: 'json',

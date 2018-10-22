@@ -38,14 +38,5 @@ public class LikeController {
         return "redirect:/placeInfo?id="+id+"#likes";
     }
 
-    @RequestMapping(value = "/getFeedBack", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?> getAction(@RequestParam String text, @RequestParam String feedback, @RequestParam String id, HttpServletRequest request) {
-        AjaxResponseBody result = new AjaxResponseBody();
-        String ip=historyDAO.getIP(request);
-        History history=new History(ip, Calendar.getInstance().getTime(),text,feedback,"feedback",id);
-        historyRepository.save(history);
-        result.setMsg("feedbackThanks");
-        return ResponseEntity.ok(result);
-    }
 
 }
