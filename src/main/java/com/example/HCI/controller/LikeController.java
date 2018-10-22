@@ -31,7 +31,9 @@ public class LikeController {
         placeService.updateLikes(id,1);
         return "redirect:/placeInfo?id="+id+"#likes";
     }
-    @GetMapping(value = "/deleteLike")
+
+
+    @RequestMapping(value = "/deleteLike", method = RequestMethod.GET, produces = "application/json")
     public String deletLike(@RequestParam("id") long id, @RequestParam("username") String username) {
         likeService.removeByUsernameAndAppId(username,id);
         placeService.updateLikes(id,-1);
