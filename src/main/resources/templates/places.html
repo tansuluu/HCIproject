@@ -210,7 +210,7 @@
 							<h4 class="title"><a th:href="@{/appInfo(id=${app1.id})}"><b th:text="${app1.title}"></b></a></h4>
 
 							<ul class="post-footer">
-								<li><a th:href="@{/placeInfo(id=${app1.id})}"  th:text="${' '+app1.likes}" class="ion-heart"></a></li>
+								<li id="likes" th:text="${' '+app1.likes}" class="ion-heart"></li>
 								<li><a th:href="@{/placeInfo(id=${app1.id})}" th:text="${' '+app1.comNumber}" class="ion-chatbubble"></a></li>
 								<li><a th:href="@{/placeInfo(id=${app1.id})}" th:text="${' '+app1.view}" class="ion-eye"></a></li>
 							</ul>
@@ -427,8 +427,12 @@
 </div>
 
 </div>
-
-<script src="/folderforindex/js/jquery-3.2.1.min.js"></script>
+<script>
+    $('#likes').on('click', function() {
+        console.log("fdhjckddmvnj");
+    });
+</script>
+<script src="folderforindex/js/jquery-3.2.1.min.js"></script>
 <script src="folderforindex/styles/bootstrap4/popper.js"></script>
 <script src="folderforindex/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
