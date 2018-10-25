@@ -428,14 +428,21 @@
 </div>
 <script>
     $(document).ready(function() {
+        var id=$("#placeId").val();
+        var username=$("#userName").val();
         $.ajax({
             url: "/hasPut",
             type: "GET",
+            data: ({id:id, username:username}),
             dataType: 'json',
             contentType: "application/json",
-            success: funcSuccessPut
+            success: function (data) {
+                console.log("here"+ data);
+            }
         });
-
+	function funcSuccessPut(data) {
+	    console.log("pup put");
+    };
     $('#addLike').on('click', function() {
         console.log("fdhjckddmvnj");
        	var id=$("#placeId").val();

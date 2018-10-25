@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
+import java.security.Principal;
 import java.util.Calendar;
 
 @Transactional
@@ -26,36 +27,29 @@ public class LikeController {
     PlaceService placeService;
 
     @RequestMapping(value = "/addLike", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?>  getLike(@RequestParam("id") long id, @RequestParam("username") String username) {
+    public ResponseEntity<?> getLike(@RequestParam("id") long id, @RequestParam("username") String username) {
         likeService.save(new Likes(username, id));
-        placeService.updateLikes(id,1);
-        int likes=placeService.findById(id).getLikes();
+        placeService.updateLikes(id, 1);
+        int likes = placeService.findById(id).getLikes();
         return ResponseEntity.ok(likes);
     }
 
     @RequestMapping(value = "/deleteLike", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<?> deletLike(@RequestParam("id") long id, @RequestParam("username") String username) {
-        likeService.removeByUsernameAndAppId(username,id);
-        placeService.updateLikes(id,-1);
-        int likes=placeService.findById(id).getLikes();
+        likeService.removeByUsernameAndAppId(username, id);
+        placeService.updateLikes(id, -1);
+        int likes = placeService.findById(id).getLikes();
         return ResponseEntity.ok(likes);
     }
 
     @RequestMapping(value = "/hasPut", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?> putedLike() {
-        try {
-            System.out.println(principal.getName());
-            if (principal.getName() != null) {
-                if (likeService.existsByAppIdAndUsername(id,principal.getName())) {
-                    model.addAttribute("trueFalse", "yes");
-                }
-                else model.addAttribute("trueFalse", "no" );
-            }
-        }catch (Exception e){
-            System.out.println("error");
-        }
-        return ResponseEntity.ok(likes);
+    public ResponseEntity<?> putedLike(@RequestParam("id") long id, @RequestParam("username") String username) {
+        System.out.println(username+"fgjdkfdfnmvvm msd vmk m m ");
+        String result = "no";
+        if (likeService.existsByAppIdAndUsername(id, username));
+            result = "yes";
+        System.out.println(result+"fsfsfefefewf");
+        return ResponseEntity.ok(result);
+
     }
-
-
 }
