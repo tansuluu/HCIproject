@@ -173,8 +173,8 @@
 							<ul class="post-icons" >
 								<input th:value="${app.id}" type="hidden" id="placeId">
 								<input type="hidden" th:value="${#request.userPrincipal.name}"  id="userName">
-								<li id="deleteLike" th:if="${#request.userPrincipal!=null}"><a  th:if="${trueFalse=='yes'}"  style="color: red" th:text="${' '+app.likes}" class="ion-heart"></a></li>
-								<li id="addLike" th:if="${#request.userPrincipal!=null}" ><a   th:if="${trueFalse=='no'}"   th:text="${' '+app.likes}" class="ion-heart"></a></li>
+								<li id="deleteLike" th:if="${#request.userPrincipal!=null}"><a style="color: red" th:text="${' '+app.likes}" class="ion-heart"></a></li>
+								<li id="addLike" th:if="${#request.userPrincipal!=null}" ><a th:text="${' '+app.likes}" class="ion-heart"></a></li>
 								<li><a th:if="${#request.userPrincipal==null}"  th:text="${' '+app.likes}" class="ion-heart" style="color: red"></a></li>
 								<li><a href="#" class="ion-chatbubble"  th:text="${' '+app.comNumber}"></a></li>
 								<li><a href="#" class="ion-eye" th:text="${' '+app.view}" ></a></li>
@@ -428,6 +428,13 @@
 </div>
 <script>
     $(document).ready(function() {
+        $.ajax({
+            url: "/hasPut",
+            type: "GET",
+            dataType: 'json',
+            contentType: "application/json",
+            success: funcSuccessPut
+        });
 
     $('#addLike').on('click', function() {
         console.log("fdhjckddmvnj");
@@ -439,7 +446,7 @@
             data: ({id:id, username:username}),
             dataType: 'json',
             contentType: "application/json",
-            success: funcSuccess
+            success: funcSuccessAdd
         });
 
     });
@@ -453,12 +460,19 @@
             data: ({id:id, username:username}),
             dataType: 'json',
             contentType: "application/json",
-            success: funcSuccess
+            success: funcSuccessDell
         });
     });
-    function funcSuccess(){
-        
+
+    function funcSuccessAdd(){
+        $("#addLike").hide();
+        $("#deleteLike").show();
 	};
+
+    function funcSuccessDell(){
+        $("#deleteLike").hide();
+            $("#addLike").show();
+        };
     });
 </script>
 <script src="folderforindex/js/jquery-3.2.1.min.js"></script>

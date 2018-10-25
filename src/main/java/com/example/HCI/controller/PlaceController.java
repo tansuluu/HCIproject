@@ -81,17 +81,7 @@ public class PlaceController {
         model.addAttribute("popular",popular);
         Comment comment=new Comment();
         model.addAttribute("comment",comment);
-        try {
-            System.out.println(principal.getName());
-            if (principal.getName() != null) {
-                if (likeService.existsByAppIdAndUsername(id,principal.getName())) {
-                    model.addAttribute("trueFalse", "yes");
-                }
-                else model.addAttribute("trueFalse", "no" );
-            }
-        }catch (Exception e){
-            System.out.println("error");
-        }
+
         return "places";
     }
 }
