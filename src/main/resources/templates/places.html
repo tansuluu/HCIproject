@@ -434,15 +434,15 @@
             url: "/hasPut",
             type: "GET",
             data: ({id:id, username:username}),
-            dataType: 'json',
             contentType: "application/json",
             success: function (data) {
                 console.log("here"+ data);
+            },
+            error: function () {
+                console.log("not put");
             }
+
         });
-	function funcSuccessPut(data) {
-	    console.log("pup put");
-    };
     $('#addLike').on('click', function() {
         console.log("fdhjckddmvnj");
        	var id=$("#placeId").val();
@@ -471,12 +471,15 @@
         });
     });
 
-    function funcSuccessAdd(){
+    function funcSuccessAdd(data){
+        console.log(data);
         $("#addLike").hide();
+        $("#deleteLike").val(data);
         $("#deleteLike").show();
 	};
 
-    function funcSuccessDell(){
+    function funcSuccessDell(data){
+        $("#addLike").val(data);
         $("#deleteLike").hide();
             $("#addLike").show();
         };
