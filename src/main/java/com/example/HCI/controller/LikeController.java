@@ -44,11 +44,9 @@ public class LikeController {
 
     @RequestMapping(value = "/hasPut", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<?> putedLike(@RequestParam("id") long id, @RequestParam("username") String username) {
-        System.out.println(username+"fgjdkfdfnmvvm msd vmk m m ");
-        String result = "no";
+        int result = -1;
         if (likeService.existsByAppIdAndUsername(id, username));
-            result = "yes";
-        System.out.println(result+"fsfsfefefewf");
+            result = 1;
         return ResponseEntity.ok(result);
 
     }

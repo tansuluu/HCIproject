@@ -20,9 +20,9 @@ public class PlaceService {
     public Place findById(long id){
         return placeRepositoty.findById(id);
     }
-    public Place updateView(long id){
+    public Place updateView(long id,int n){
         Place place=findById(id);
-        place.setView(place.getView()+1);
+        place.setView(place.getView()+n);
         return save(place);
     }
 
@@ -43,13 +43,12 @@ public class PlaceService {
     }
     public Place updateLikes(long id, int n){
         Place place=findById(id);
-        place.setView(place.getView()-1);
         place.setLikes(place.getLikes()+n);
         return save(place);
     }
     public Place updateCommentNum(long id,int n){
         Place place=findById(id);
-        place.setView(place.getView()-1);
+        place.setView(place.getView());
         place.setComNumber(place.getComNumber()+n);
         return save(place);
     }

@@ -22,6 +22,7 @@ public class LikeService {
     }
 
     public boolean existsByAppIdAndUsername(long id, String name){
+        System.out.println(likeRepository.existsByAppIdAndUsername(id,name)+"vsdv");
         return likeRepository.existsByAppIdAndUsername(id,name);
     }
 }
