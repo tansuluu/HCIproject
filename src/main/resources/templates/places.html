@@ -453,7 +453,16 @@
     $("#form-submit").on("click",function(){
         console.log("here comment");
         var text=$("#comments").val();
-        console.log(text);
+        if(text!=null && text!=""){
+            $.ajax({
+				url:"/newComment",
+				type:"GET",
+				data:({comment:text}),
+                dataType: 'json',
+                contentType: "application/json",
+                success: funcSuccessAddComment
+			});
+		}
 	});
     $('#addLike').on('click', function() {
         console.log("fdhjckddmvnj");
