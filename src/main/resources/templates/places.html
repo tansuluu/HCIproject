@@ -448,8 +448,13 @@
             error: function () {
                 console.log("not put");
             }
-
         });
+
+    $("#form-submit").on("click",function(){
+        console.log("here comment");
+        var text=$("#comments").val();
+        console.log(text);
+	});
     $('#addLike').on('click', function() {
         console.log("fdhjckddmvnj");
        	var id=$("#placeId").val();
