@@ -144,7 +144,7 @@
         <!--================Total container Area =================-->
         <div class="container main_container" th:object="${user}">
             <div class="content_inner_bg row m0">
-                <section class="about_person_area pad" style="padding-top: 120px" id="about">
+                <section class="about_person_area pad" style="padding-top: 140px" id="about">
                     <div class="row">
                         <div class="col-md-5">
                             <div class="person_img">
@@ -161,7 +161,7 @@
                                         <li><a href="#">Age</a></li>
                                         <li><a href="#">Languages</a></li>
                                         <li><a href="#">Country</a></li>
-                                        <li><a href="#">Experience</a></li>
+                                        <li th:if="${user.experience!=''}"><a th:if="${user.experience!=''}" href="#">Experience</a></li>
                                         <li><a href="#">Gander</a></li>
                                         <li><a href="#">Email</a></li>
                                     </ul>
@@ -169,7 +169,7 @@
                                         <li><a href="#" th:text="${user.age}">24</a></li>
                                         <li><a href="#"th:text="${user.languages}"></a></li>
                                         <li><a href="#" th:text="${user.country}">Kyrgystan</a></li>
-                                        <li><a href="#" th:text="${user.experience}"></a></li>
+                                        <li th:if="${user.experience!=''}"><a th:if="${user.experience!=''}"  href="#" th:text="${user.experience}"></a></li>
                                         <li><a href="#" th:text="${user.gender}"></a></li>
                                         <li><a href="#"th:text="${user.email}"></a></li>
                                     </ul>
@@ -181,16 +181,22 @@
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
-                                <div sec:authorize="hasAuthority('GID')" th:if="${#request.userPrincipal!=null}">
-                                    <a  th:if="${user.email==#request.userPrincipal.name}"
-                                        class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE</b></a>
-                                    <a class="load-more-btn" th:href="@{/newPlace}"><b>NEW PLACE</b></a><br>
-                                    <a class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a>
+                                <div sec:authorize="hasAuthority('GID')">
+                                    <li><a th:if="${user.email==#request.userPrincipal.name}" class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE USER</b></a></li>
+                                    <li><a th:if="${user.email==#request.userPrincipal.name}" class="load-more-btn" th:href="@{/deleteUser(id=${user.id})}"><b>DELETE USER</b></a></li>
+                                    <li><a th:if="${user.email==#request.userPrincipal.name}" class="load-more-btn" th:href="@{/newPlace}"><b>NEW PLACE</b></a></li>
+                                    <li><a th:if="${user.email==#request.userPrincipal.name}" class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a></li>
                                 </div>
-                                <div class="right-area" sec:authorize="hasAuthority('TOURIST')">
-                                    <a class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE USER</b></a><br>
-                                    <a class="load-more-btn" th:href="@{/deleteUser(id=${user.id})}"><b>DELETE USER</b></a>
-
+                                <div class="right-area" sec:authorize="hasAuthority('TOURIST')" >
+                                    <li><a th:if="${user.email==#request.userPrincipal.name}" class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE USER</b></a><br></li>
+                                    <li><a th:if="${user.email==#request.userPrincipal.name}" class="load-more-btn" th:href="@{/deleteUser(id=${user.id})}"><b>DELETE USER</b></a></li>
+                                    <li><a th:if="${user.email==#request.userPrincipal.name}" class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a></li>
+                                </div>
+                                <div sec:authorize="hasAuthority('ADMIN')">
+                                    <li><a class="load-more-btn" th:href="@{/updateUser(id=${user.id})}"><b>UPDATE USER</b></a></li>
+                                    <li><a class="load-more-btn" th:href="@{/deleteUser(id=${user.id})}"><b>DELETE USER</b></a></li>
+                                    <li><a class="load-more-btn" th:href="@{/newPlace}"><b>NEW PLACE</b></a><br></li>
+                                    <li><a class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a></li>
                                 </div>
                             </div>
                         </div>

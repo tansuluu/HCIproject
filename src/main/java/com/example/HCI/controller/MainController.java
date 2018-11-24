@@ -19,8 +19,8 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(Model model){
-        ArrayList list= (ArrayList)placeService.getTop3PlaceByOrderByView();
-        model.addAttribute("places",list);
+//        ArrayList list= (ArrayList)placeService.getTop3PlaceByOrderByView();
+//        model.addAttribute("places",list);
         return "index";
     }
 }
