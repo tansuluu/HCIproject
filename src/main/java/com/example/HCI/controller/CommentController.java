@@ -31,19 +31,6 @@ public class CommentController {
     @Autowired
     PlaceService placeService;
 
-    @RequestMapping(value = "/newComment", method = RequestMethod.POST)
-    public String saveComment(@ModelAttribute("comment") @Valid Comment comment, BindingResult result, Principal principal, @RequestParam("appId") long appId) {
-        if (result.hasErrors()) {
-            return "redirect:/placeInfo?id=" + appId + "#comment";
-        }
-        comment.setUsername(principal.getName());
-        comment.setIdPlace(appId);
-        comment.setImage(userService.findUserByEmail(principal.getName()).getImage());
-        commentService.save(comment);
-        placeService.updateCommentNum(comment.getIdPlace(), 1);
-        return "redirect:/placeInfo?id=" + appId + "#comment";
-    }
-
     @RequestMapping("/deleteComment")
     public String deleteComment(@RequestParam("id") long id, @RequestParam("apId") long appId) {
         placeService.updateCommentNum(appId, -1);

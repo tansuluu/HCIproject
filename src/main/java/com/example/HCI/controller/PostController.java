@@ -1,10 +1,12 @@
 package com.example.HCI.controller;
 
 
+import com.example.HCI.model.Comment;
 import com.example.HCI.model.Post;
 import com.example.HCI.service.PostService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,6 +38,16 @@ public class PostController {
         post.setImage(userService.findUserByEmail(principal.getName()).getImage());
         postService.save(post);
         return "redirect:/userPage?username="+username;
+    }
+    @RequestMapping(value = "/newPost", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> addComment(@RequestParam("post") String text, @RequestParam("username") String username, Principal principal) {
+        Post post=new Post();
+        post.setPostText(text);
+        post.setUsername(principal.getName());
+        post.setUser(username);
+        post.setImage(userService.findUserByEmail(principal.getName()).getImage());
+        Post post1=postService.save(post);
+        return ResponseEntity.ok(post1);
     }
 
     @RequestMapping("/deletePost")
