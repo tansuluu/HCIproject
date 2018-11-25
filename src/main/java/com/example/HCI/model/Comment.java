@@ -18,7 +18,6 @@ public class Comment {
     @Column(name = "idPlace")
     private long idPlace;
     @Column(name = "text")
-    @NotEmpty(message = "*Please write comment")
     private String comentText;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dateCom", nullable = false)

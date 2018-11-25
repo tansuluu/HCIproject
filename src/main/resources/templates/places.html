@@ -243,7 +243,7 @@
 
 							</div><!-- col-sm-12 -->
 							<div class="col-sm-12">
-								<p class="submit-btn" id="form-submit"><b>POST COMMENT</b></p>
+								<button type="button" class="submit-btn" id="form-submit"><b>POST COMMENT</b></button>
 							</div><!-- col-sm-12 -->
 
 						</div><!-- row -->
@@ -252,7 +252,7 @@
 
 				<h4><b th:text="${'COMENTS('+app.comNumber+')'}"></b></h4>
 
-				<div class="commnets-area text-left" >
+				<div class="commnets-area text-left" id="headerofcomment">
 
 					<div class="comment" th:each="commen: ${comments}">
 
@@ -450,18 +450,21 @@
         console.log("here comment");
         var text=$("#comments").val();
         var id=$("#appID").val();
-        if(text!=null && text!=""){
+        if(text!=null && text!="" && text!=" "){
             $.ajax({
 				url:"/newComment",
 				type:"GET",
 				data:({comment:text, appId:id}),
                 dataType: 'json',
-                contentType: "application/json"
+                contentType: "application/json",
+				before:function(){
+                    $("#comments").val("");
+				},
+                success: funcSuccessAddComment
 			});
 		}
 	});
     $('#addLike').on('click', function() {
-        console.log("fdhjckddmvnj");
        	var id=$("#placeId").val();
        	var username=$("#userName").val();
         $.ajax({
@@ -475,7 +478,6 @@
 
     });
     $('#deleteLike').on('click', function() {
-        console.log("deleteee");
         var id=$("#placeId").val();
         var username=$("#userName").val();
         $.ajax({
@@ -499,8 +501,31 @@
         $("#deleteLike").hide();
 		$("#addLike").show();
         };
-    });
 
+	function funcSuccessAddComment(data) {
+        var comment='<div class="comment">' +
+            '<div class="post-info">' +
+            '<div class="left-area">' +
+            '<a class="avatar" href="#"><img  th:src="'+data.image+'" alt="Profile Image"></a>' +
+            '</div>\n' +
+            '<div class="middle-area">\n' +
+            '<a class="name"><b style="color:black">'+data.username+'</b></a>' +
+            '<h6 class="date">'+data.dateCom+'</h6>' +
+            '</div>\n' +
+            '<div class="right-area">\n' +
+            '<a><img  src="'+images/trash.png+'" style="width: 30px" alt="Profile Image"></a>\n' +
+            '\n' +
+            '</div>\n' +
+            '\n' +
+            '</div><!-- post-info -->\n' +
+            '\n' +
+            '<p>'+data.comentText+'</p>\n' +
+            '</div>';
+        $("#comments").val("");
+        $("#headerofcomment").append(comment);
+		console.log(data.id);
+    }
+    });
 </script>
 <script src="folderforindex/js/jquery-3.2.1.min.js"></script>
 <script src="folderforindex/styles/bootstrap4/popper.js"></script>
@@ -519,3 +544,21 @@
 
 </body>
 </html>
+var comment='<div class="comment">' +
+	'<div class="post-info">' +
+		'<div class="left-area">' +
+			'<a class="avatar" href="#"><img  th:src="'+data.image+'" alt="Profile Image"></a>' +
+			'</div>\n' +
+		'<div class="middle-area">\n' +
+			'<a class="name" th:href="@{/userPage(username="'+data.username+'")}"><b>'+data.username+'</b></a>' +
+			'<h6 class="date">'+data.dateCom+'</h6>' +
+			'</div>\n' +
+		'<div class="right-area" sec:authorize="hasRole(\'ROLE_ADMIN\')">\n' +
+			'<a th:href="@{/deleteComment(id="'+data.id+'", apId="'+data.idPlace+'")}"><img  src="images/trash.png" style="width: 30px" alt="Profile Image"></a>\n' +
+			'\n' +
+			'</div>\n' +
+		'\n' +
+		'</div><!-- post-info -->\n' +
+	'\n' +
+	'<p>'+data.comentText+'</p>\n' +
+	'</div>';
