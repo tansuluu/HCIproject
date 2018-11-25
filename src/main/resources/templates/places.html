@@ -433,13 +433,17 @@
             dataType: 'json',
             contentType: "application/json",
             success: function (data) {
-                console.log(data+ " data")
+                console.log(data+ " data");
+                console.log(data==1);
                 if(data==1){
+                    $("#deleteLike").show();
+                    $("#addLike").hide();
+                    console.log(data+ " show");
+				}
+				if(data==0) {
                     $("#deleteLike").hide();
                     $("#addLike").show();
-				}
-                $("#deleteLike").show();
-                $("#addLike").hide();
+                }
             },
             error: function () {
                 console.log("not put");

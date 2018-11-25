@@ -1,7 +1,6 @@
 package com.example.HCI.service;
 
 
-import com.example.HCI.model.Comment;
 import com.example.HCI.model.Place;
 import com.example.HCI.repository.PlaceRepositoty;
 import org.springframework.beans.factory.annotation.Autowired;
