@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="/folderforindex/styles/responsive.css">
 	<link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/bootstrap.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/ionicons.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/st1.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/folderforindex/css/style.css}" />
 	<link rel="stylesheet" type="text/html" th:href="@{/folderforindex/css/responsive.css}" />
 </head>
 <body class="body" th:object="${app}">
@@ -141,19 +141,9 @@
 
 						<h5 class="pre-title"></h5>
 
-						<h3 class="title" ><a href="#"><b th:text="${app.title}"></b></a></h3>
+						<h3 class="title" ><a  href="#"><b th:text="${app.title}"></b></a></h3>
 
-						<div class="post-info">
 
-							<div class="left-area">
-							</div>
-
-							<div class="middle-area">
-								<a class="name" th:href="@{/userPage(username=${app.usarname})}" th:text="${app.usarname}" ><b></b></a>
-								<h6 class="date" th:text="${'on '+ app.date}">on Sep 29, 2017 at 9:48 am</h6>
-							</div>
-
-						</div><!-- post-info -->
 
 						<p class="para" th:text="${app.text}"></p>
 
@@ -169,6 +159,13 @@
 							<a class="load-more-btn" th:href="@{/deleteApp(id=${app.id})}"><b>DELETE THE APPLICACTION</b></a>
 						</div>
 
+						<div class="post-info">
+							<div class="middle-area">
+								<a class="name" th:href="@{/userPage(username=${app.usarname})}"><b></b><h3 th:text="${app.usarname}"></h3></b></a>
+								<h6 class="date" th:text="${'on '+ app.date}">on Sep 29, 2017 at 9:48 am</h6>
+							</div>
+
+						</div>
 						<div class="post-icons-area">
 							<ul class="post-icons" >
 								<input th:value="${app.id}" type="hidden" id="placeId">
@@ -187,7 +184,6 @@
 								<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
 							</ul>
 						</div>
-
 					</div><!-- post-bottom-area -->
 
 				</div><!-- main-post -->
