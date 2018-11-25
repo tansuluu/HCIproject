@@ -243,7 +243,7 @@
 
 							</div><!-- col-sm-12 -->
 							<div class="col-sm-12">
-								<button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
+								<p class="submit-btn" id="form-submit"><b>POST COMMENT</b></p>
 							</div><!-- col-sm-12 -->
 
 						</div><!-- row -->
@@ -449,15 +449,14 @@
     $("#form-submit").on("click",function(){
         console.log("here comment");
         var text=$("#comments").val();
-        var appId=$("#appID").val();
+        var id=$("#appID").val();
         if(text!=null && text!=""){
             $.ajax({
 				url:"/newComment",
 				type:"GET",
-				data:({comment:text, appId:8}),
+				data:({comment:text, appId:id}),
                 dataType: 'json',
-                contentType: "application/json",
-                success: funcSuccessAddComment
+                contentType: "application/json"
 			});
 		}
 	});
@@ -501,9 +500,7 @@
 		$("#addLike").show();
         };
     });
-    function funcSuccessAddComment(data) {
-		console.log(data);
-    }
+
 </script>
 <script src="folderforindex/js/jquery-3.2.1.min.js"></script>
 <script src="folderforindex/styles/bootstrap4/popper.js"></script>
