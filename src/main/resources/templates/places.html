@@ -232,13 +232,13 @@
 
 			<div class="col-lg-8 col-md-12"   >
 				<div class="comment-form" th:if="${#request.userPrincipal != null}">
-					<form th:action="@{/newComment(appId=${app.id})}" method="post" th:object="${comment}">
+					<form>
 						<div class="row">
 							<a class="name" href="#"><b th:text="${'Add comment as '+#request.userPrincipal.name}"></b></a>
 							<div class="col-sm-12">
-								<label th:if="${#fields.hasErrors('comentText')}" th:errors="*{comentText}" class="validation-message">
+								<input type="hidden" th:value="${app.id}"  id="appID">
 								</label>
-								<textarea th:field="*{comentText}" id="comments" rows="2" class="text-area-messge form-control"
+								<textarea  id="comments" rows="2" class="text-area-messge form-control"
 										  placeholder="Enter your comment"></textarea >
 
 							</div><!-- col-sm-12 -->
@@ -449,11 +449,12 @@
     $("#form-submit").on("click",function(){
         console.log("here comment");
         var text=$("#comments").val();
+        var appId=$("#appID").val();
         if(text!=null && text!=""){
             $.ajax({
 				url:"/newComment",
 				type:"GET",
-				data:({comment:text}),
+				data:({comment:text, appId:8}),
                 dataType: 'json',
                 contentType: "application/json",
                 success: funcSuccessAddComment
@@ -487,7 +488,6 @@
             success: funcSuccessDell
         });
     });
-
     function funcSuccessAdd(data){
         console.log(data);
         $("#addLike").hide();
@@ -501,6 +501,9 @@
 		$("#addLike").show();
         };
     });
+    function funcSuccessAddComment(data) {
+		console.log(data);
+    }
 </script>
 <script src="folderforindex/js/jquery-3.2.1.min.js"></script>
 <script src="folderforindex/styles/bootstrap4/popper.js"></script>

@@ -27,7 +27,7 @@ public class LikeController {
     PlaceService placeService;
 
     @RequestMapping(value = "/addLike", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?> getLike(@RequestParam("id") long id, @RequestParam("username") String username) {
+    public ResponseEntity<?> getLike(@RequestParam("id") long id, @RequestParam("username") String username,Principal principal) {
         likeService.save(new Likes(username, id));
         placeService.updateLikes(id, 1);
         int likes = placeService.findById(id).getLikes();

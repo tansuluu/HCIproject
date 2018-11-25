@@ -1,10 +1,12 @@
 package com.example.HCI.controller;
 
 import com.example.HCI.model.Comment;
+import com.example.HCI.model.Likes;
 import com.example.HCI.service.CommentService;
 import com.example.HCI.service.PlaceService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,22 +32,28 @@ public class CommentController {
     PlaceService placeService;
 
     @RequestMapping(value = "/newComment", method = RequestMethod.POST)
-    public String saveComment(@ModelAttribute("comment") @Valid Comment comment, BindingResult result, Principal principal, @RequestParam("appId") long appId){
+    public String saveComment(@ModelAttribute("comment") @Valid Comment comment, BindingResult result, Principal principal, @RequestParam("appId") long appId) {
         if (result.hasErrors()) {
-            return "redirect:/placeInfo?id="+appId+"#comment";
+            return "redirect:/placeInfo?id=" + appId + "#comment";
         }
         comment.setUsername(principal.getName());
         comment.setIdPlace(appId);
         comment.setImage(userService.findUserByEmail(principal.getName()).getImage());
         commentService.save(comment);
-        placeService.updateCommentNum(comment.getIdPlace(),1);
-        return "redirect:/placeInfo?id="+appId+"#comment";
+        placeService.updateCommentNum(comment.getIdPlace(), 1);
+        return "redirect:/placeInfo?id=" + appId + "#comment";
     }
 
     @RequestMapping("/deleteComment")
-    public String deleteComment(@RequestParam("id") long id, @RequestParam("apId") long appId){
-        placeService.updateCommentNum(appId,-1);
+    public String deleteComment(@RequestParam("id") long id, @RequestParam("apId") long appId) {
+        placeService.updateCommentNum(appId, -1);
         commentService.deleteById(id);
-        return "redirect:/appInfo?id="+appId+"#comment";
+        return "redirect:/appInfo?id=" + appId + "#comment";
+    }
+
+    @RequestMapping(value = "/newComment", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> getLike(@RequestParam("comment") String comment,@RequestParam("appId") long appId, Principal principal) {
+        System.out.print("hererererrerrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+        return ResponseEntity.ok(7);
     }
 }
