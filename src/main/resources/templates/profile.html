@@ -249,7 +249,7 @@
                                         </div><!-- row -->
                                     </form>
                                 </div><!-- comment-form -->
-                                <div class="commnets-area text-left" >
+                                <div class="commnets-area text-left" id="postarea">
 
                                     <div class="comment" th:each="post: ${posts}">
 
@@ -440,9 +440,23 @@
                     }
                 });
                 function funcSuccessAddPost(data) {
-                    $("#comments").val("");
                     console.log(data);
-                };
+                    var comment='<div class="comment">' +
+                        '<div class="post-info">' +
+                        '<div class="left-area">' +
+                        '<a class="avatar" href="#"><img  src="'+data.image+'" alt="Profile Image"></a>' +
+                        '</div>\n' +
+                        '<div class="middle-area">\n' +
+                        '<a class="name"><b style="color: black">'+data.username+'</b></a>' +
+                        '<h6 class="date">on '+data.datePost+'</h6>' +
+                        '</div>\n' +
+                        '</div>' +
+                        '<p>'+data.postText+'</p>\n' +
+                        '</div>';
+                    $("#postarea").append(comment);
+                    console.log(comment);
+                    $("#comments").val("");
+                }
 
             });
         </script>

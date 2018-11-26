@@ -41,7 +41,6 @@ public class PostController {
     }
     @RequestMapping(value = "/newPost", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<?> addComment(@RequestParam("post") String text, @RequestParam("username") String username, Principal principal) {
-        System.out.println("hererererrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrhcdbjnx");
         Post post=new Post();
         post.setPostText(text);
         post.setUsername(principal.getName());
