@@ -283,8 +283,8 @@
 			</div>
 		</div>
 		<div class="card-deck">
-			<div class="card" th:each="place:${places}" style="border-radius: 40% 0%; background-color: #f4f8f9">
-				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 200px; border-radius: 50%" alt="Card image cap">
+			<div class="card" th:each="place:${places}">
+				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 170px" alt="Card image cap">
 				<div class="card-body">
 					<a th:href="@{/placeInfo(id=${place.id})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #0c5460; font-size: 25px" th:text="${place.title}">Card title</h5></a>
 					<p class="card-text" th:text="${place.text}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -299,7 +299,29 @@
 	</div>
 	</div>
 
+<div class="offers">
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<h2 class="section_title" style="padding-bottom: 40px">The best local gids</h2>
+			</div>
+		</div>
+		<div class="card-deck">
+			<div class="card" th:each="place:${places}">
+				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 170px" alt="Card image cap">
+				<div class="card-body">
+					<a th:href="@{/placeInfo(id=${place.id})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #0c5460; font-size: 25px" th:text="${place.title}">Card title</h5></a>
+					<p class="card-text" th:text="${place.text}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<a th:href="@{/placeInfo(id=${place.id})}" ><p id="read">Read more</p></a>
+				</div>
+				<div class="card-footer">
 
+					<small class="text-muted" ><a th:href="@{/userPage(username=${place.usarname})}" th:text="${'posted by '+place.usarname}"></a></small>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Copyright -->
 
