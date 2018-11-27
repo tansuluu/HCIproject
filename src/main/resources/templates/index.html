@@ -280,32 +280,15 @@
 				<h2 class="section_title">the best offers of locals</h2>
 			</div>
 		</div>
-		<div class="row offers_items" th:each="place: ${places}">
-
-			<!-- Offers Item -->
-			<div class="col-lg-6 offers_col">
-				<div class="offers_item">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="offers_image_container">
-								<div class="offers_image_background"  th:style="'background: url(image/' + ${place.photo1} + ') no repeat'" ></div>
-								<div class="offer_name"><a href="#" th:text="${place.title}">mountain hiking</a></div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="offers_content">
-								<div class="rating_r rating_r_4 offers_rating">
-									<i></i>
-									<i></i>
-									<i></i>
-									<i></i>
-									<i></i>
-								</div>
-								<p class="offers_text" th:text="${place.text}">Travel with me and my family to the mountains of Almaty. Enjoy a choice of guided day hikes and evenings spent in comfortable accommodations. </p>
-								<div class="offers_link"><a href="offers.html">read more</a></div>
-							</div>
-						</div>
-					</div>
+		<div class="card-deck">
+			<div class="card" th:each="place:${places}">
+				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text" th:text="${place.text}" style="display:block;text-overflow: ellipsis;width: 200px;overflow: hidden; white-space: nowrap;">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted" th:text="${'posted by '+place.usarname}">Last updated 3 mins ago</small>
 				</div>
 			</div>
 		</div>
