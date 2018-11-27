@@ -2113,17 +2113,17 @@ section
 
 .copyright
 {
-	background: #1f0733;
+	background: rgb(73, 156, 211);
 }
 .copyright_content
 {
-	height: 52px;
+	height: 72px;
 }
 .copyright_content div
 {
 	font-size: 12px;
 	font-weight: 600;
-	color: #685677;
+	color: white;
 }
 .footer_nav_container
 {
@@ -2146,7 +2146,7 @@ section
 {
 	font-size: 12px;
 	font-weight: 600;
-	color: #685677;
+	color: wheat;
 	text-transform: uppercase;
 	line-height: 2;
 	-webkit-transition: all 200ms ease;
