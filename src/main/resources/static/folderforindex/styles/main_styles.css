@@ -256,7 +256,7 @@ section
 	left: 0;
 	width: 200%;
 	height: 100%;
-	background: linear-gradient(to right, #fa9e1b, #8d4fff, #499CD3);
+	background: linear-gradient(to right, #ee30f4,#8d4fff, #499CD3);
 	z-index: -1;
 	-webkit-transition: all 400ms ease;
 	-moz-transition: all 400ms ease;
@@ -1303,7 +1303,7 @@ section
 {
 	padding-top: 125px;
 	padding-bottom: 116px;
-	background: linear-gradient(to right, #fa9e1b, #8d4fff);
+	background: linear-gradient(to right, #ee30f4, #2272f4);
 }
 .cta_background
 {

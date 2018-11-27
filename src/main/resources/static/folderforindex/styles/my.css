@@ -1,7 +1,8 @@
 .card-text{
+    margin-bottom: 0;
     display:block;
     text-overflow: ellipsis;
-    width: 200px;
+    width: 320px;
     overflow: hidden;
     white-space:nowrap;
 }
@@ -11,6 +12,14 @@
     font-size: 13px
 }
 
-.card-muted a:hover{
+.text-muted a:hover {
     color: #1b6d85;
+}
+#read{
+    font-weight: bold;
+    color: #1b6d85;
+    float: right;
+}
+#read:hover{
+    color: #2aabd2;
 }
