@@ -58,7 +58,6 @@ public class UserController {
         }
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "filename=\"" + file.getFilename() + "\"")
-
                 .body(file);
     }
     @GetMapping("/up-avatar/{filename:.+}")
