@@ -47,7 +47,7 @@
 							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/logout}">Logout</a></div>
 							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
 
-							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/registration}">Register</a></div>
 							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
 
 						</div>
@@ -283,8 +283,8 @@
 			</div>
 		</div>
 		<div class="card-deck">
-			<div class="card" th:each="place:${places}">
-				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 170px" alt="Card image cap">
+			<div class="card" th:each="place:${places}" style="border-radius: 40% 0%; background-color: #f4f8f9">
+				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 200px; border-radius: 50%" alt="Card image cap">
 				<div class="card-body">
 					<a th:href="@{/placeInfo(id=${place.id})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #0c5460; font-size: 25px" th:text="${place.title}">Card title</h5></a>
 					<p class="card-text" th:text="${place.text}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -299,35 +299,6 @@
 	</div>
 	</div>
 
-
-
-
-
-<div class="contact">
-	<div class="contact_background" style="background-image:url(images/contact.png)"></div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-5">
-				<div class="contact_image">
-
-				</div>
-			</div>
-			<div class="col-lg-7">
-				<div class="contact_form_container">
-					<div class="contact_title">get in touch</div>
-					<form action="#" id="contact_form" class="contact_form">
-						<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Name" required="required" data-error="Name is required.">
-						<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="E-mail" required="required" data-error="Email is required.">
-						<input type="text" id="contact_form_subject" class="contact_form_subject input_field" placeholder="Subject" required="required" data-error="Subject is required.">
-						<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-						<button type="submit" id="form_submit_button" class="form_submit_button button">send message</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 <!-- Copyright -->
