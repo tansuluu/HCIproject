@@ -44,8 +44,8 @@
 							</ul>
 						</div>
 						<div class="user_box ml-auto">
-							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></div>
-							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/logout}">Logout</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
 
 							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a></div>
 							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
@@ -63,12 +63,12 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
+							<div class="logo"><a href=""><img src="" alt="">opentravel</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a th:href="@{/}">home</a></li>
-								<li class="main_nav_item"><a th:href="@{/about}">about Almaty</a></li>
+								<li class="main_nav_item"><a th:href="@{/about}">about us</a></li>
 								<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
 								<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
 								<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
