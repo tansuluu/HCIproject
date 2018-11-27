@@ -14,7 +14,9 @@
 	<link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 	<link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="folderforindex/styles/main_styles.css">
+	<link rel="stylesheet" type="text/css" href="folderforindex/styles/my.css">
 	<link rel="stylesheet" type="text/css" href="folderforindex/styles/responsive.css">
+
 </head>
 
 <body>
@@ -282,13 +284,14 @@
 		</div>
 		<div class="card-deck">
 			<div class="card" th:each="place:${places}">
-				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}"  alt="Card image cap">
+				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 150px" alt="Card image cap">
 				<div class="card-body">
 					<h5 class="card-title" th:text="${place.title}">Card title</h5>
-					<p class="card-text" th:text="${place.text}" style="display:block;text-overflow: ellipsis;width: 200px;overflow: hidden; white-space: nowrap;">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<p class="card-text" th:text="${place.text}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 				</div>
 				<div class="card-footer">
-					<small class="text-muted" th:text="${'posted by '+place.usarname}">Last updated 3 mins ago</small>
+
+					<small class="text-muted" ><a th:href="@{/userPage(username=${place.usarname})}" th:text="${'posted by '+place.usarname}"></a></small>
 				</div>
 			</div>
 		</div>

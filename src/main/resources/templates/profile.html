@@ -205,7 +205,6 @@
                             <div class="col-lg-4 col-md-6" th:each="app1:${places}">
                                 <div class="card h-100">
                                     <div class="single-post post-style-1">
-
                                         <div class="blog-image"><img th:if="${app1.getPhoto1()}!=null" th:src="@{${'/image/'+app1.photo1}}" alt="Blog Image"></div>
                                         <div class="blog-info">
                                             <h4 class="title"><a th:href="@{/placeInfo(id=${app1.id})}" ><b th:text="${app1.title}"></b></a></h4>
