@@ -66,10 +66,12 @@ public class LoginController {
             }
             if (user.getCountry()==null || user.getCountry().equalsIgnoreCase("")) {
                 user.setCountry("Kyrgyzstan");
+                user.setStatus("gid");
                 userService.saveUser(user, "GID");
                 modelAndView.addObject("successMessage", "User has been registered successfully as GID");
             }
             else {
+                user.setStatus("tourist");
                 userService.saveUser(user, "TOURIST");
                 modelAndView.addObject("successMessage", "User has been registered successfully as Tourist");
             }
