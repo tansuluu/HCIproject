@@ -1,5 +1,6 @@
 package com.example.HCI.controller;
 
+import com.example.HCI.model.Place;
 import com.example.HCI.service.PlaceService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller

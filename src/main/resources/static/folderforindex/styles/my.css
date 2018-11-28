@@ -25,9 +25,12 @@
 }
 #read2{
     font-weight: bold;
-    color: #1b6d85;
+    color: #ee30f4;
     float: right;
 }
 #read2:hover{
     color: #2aabd2;
+}
+.post-footer li{
+    display: inline-block;
 }

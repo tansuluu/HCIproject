@@ -303,20 +303,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col text-center">
-				<h2 class="section_title" style="padding-bottom: 40px">The best local gids</h2>
+				<h2 class="section_title" style="padding-bottom: 50px; color: #0c5460">The best local gids</h2>
 			</div>
 		</div>
 		<div class="card-deck">
-			<div class="card" th:each="gid:${gids}">
-				<img class="card-img-top" th:src="@{${gid.image}}" style="max-height: 170px" alt="Card image cap">
+			<div class="card" th:each="gid:${gids}" style="border-radius: 10% 10% 10% 10%">
+				<img class="card-img-top" th:src="@{${gid.image}}" style="max-height: 170px; border-radius: 60%; margin-top: -30px; max-width: 60%; margin-left: 20%;" alt="Card image cap">
 				<div class="card-body">
-					<a th:href="@{/userPage(username=${gid.email})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #0c5460; font-size: 25px" th:text="${gid.name}">Card title</h5></a>
-					<p class="card-text" th:text="${gid.aboutMe}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<a th:href="@{/userPage(username=${gid.email})}" ><p id="read2">Read more</p></a>
+					<a th:href="@{/userPage(username=${gid.email})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #014c8c; font-size: 25px" th:text="${gid.name}">Card title</h5></a>
+					<p class="card-tex" th:text="${gid.aboutMe}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<a th:href="@{/userPage(username=${gid.email})}" ><p id="read2">Learn more</p></a>
 				</div>
 				<div class="card-footer">
 
-					<small class="text-muted" ><a th:href="@{/userPage(username=${gid.email})}" ></a></small>
+					<small class="text-muted">Experience: <i th:text="${gid.experience}"></i> years</small>
 				</div>
 			</div>
 		</div>
