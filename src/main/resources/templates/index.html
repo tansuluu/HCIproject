@@ -307,16 +307,16 @@
 			</div>
 		</div>
 		<div class="card-deck">
-			<div class="card" th:each="place:${places}">
-				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 170px" alt="Card image cap">
+			<div class="card" th:each="gid:${gids}">
+				<img class="card-img-top" th:src="@{${gid.image}}" style="max-height: 170px" alt="Card image cap">
 				<div class="card-body">
-					<a th:href="@{/placeInfo(id=${place.id})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #0c5460; font-size: 25px" th:text="${place.title}">Card title</h5></a>
-					<p class="card-text" th:text="${place.text}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<a th:href="@{/placeInfo(id=${place.id})}" ><p id="read">Read more</p></a>
+					<a th:href="@{/userPage(username=${gid.email})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #0c5460; font-size: 25px" th:text="${gid.name}">Card title</h5></a>
+					<p class="card-text" th:text="${gid.aboutMe}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<a th:href="@{/userPage(username=${gid.email})}" ><p id="read2">Read more</p></a>
 				</div>
 				<div class="card-footer">
 
-					<small class="text-muted" ><a th:href="@{/userPage(username=${place.usarname})}" th:text="${'posted by '+place.usarname}"></a></small>
+					<small class="text-muted" ><a th:href="@{/userPage(username=${gid.email})}" ></a></small>
 				</div>
 			</div>
 		</div>

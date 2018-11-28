@@ -1,6 +1,7 @@
 package com.example.HCI.controller;
 
 import com.example.HCI.service.PlaceService;
+import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,12 +18,15 @@ public class MainController {
     @Autowired
     PlaceService placeService;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping("/")
     public String index(Model model){
         ArrayList list= (ArrayList)placeService.getTop3PlaceByOrderByView();
-        System.out.println(list.size());
+        ArrayList list2=userService.getAllByStatus("gid");
         model.addAttribute("places",list);
-
+        model.addAttribute("gids", list2);
         return "index";
     }
 }

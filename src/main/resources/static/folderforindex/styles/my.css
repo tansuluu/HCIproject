@@ -23,3 +23,11 @@
 #read:hover{
     color: #2aabd2;
 }
+#read2{
+    font-weight: bold;
+    color: #1b6d85;
+    float: right;
+}
+#read2:hover{
+    color: #2aabd2;
+}
