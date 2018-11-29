@@ -250,7 +250,6 @@
 
 				<div class="cta_slider_container">
 					<div class="owl-carousel owl-theme cta_slider">
-
 						<!-- CTA Slider Item -->
 						<div class="owl-item cta_item text-center">
 							<div class="cta_title">Welcome to Kyrgyzstan</div>
@@ -260,11 +259,7 @@
 								of the country's many nomadic herders. Haggle for bargains in Osh, a thousands-year old bazaar located along the fabled Silk Road, and sleep in a yurt under the stars.</p>
 							<div class="button cta_button"><div class="button_bcg"></div><a th:href="@{/about}">Learn more</a></div>
 						</div>
-
 					</div>
-
-
-
 				</div>
 
 			</div>
@@ -299,11 +294,12 @@
 	</div>
 	</div>
 
-<div class="offers">
+<div class="offers" style="background: linear-gradient(to right, #f189ff, #a5cdff);">
+	<div class="cta_background" style="background-image:url(images/image.jpg)"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col text-center">
-				<h2 class="section_title" style="padding-bottom: 50px; color: #0c5460">The best local gids</h2>
+				<h2 class="section_title" style="padding-bottom: 50px; color:white">The best local gids</h2>
 			</div>
 		</div>
 		<div class="card-deck">
@@ -316,6 +312,30 @@
 				</div>
 				<div class="card-footer">
 					<small class="text-muted">Experience: <i th:text="${gid.experience}"></i> years</small>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="offers">
+	<div class="cta_background"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<h2 class="section_title" style="padding-bottom: 50px; color: #0c5460 ">The best local gids</h2>
+			</div>
+		</div>
+		<div class="card-deck">
+			<div class="card" th:each="tour:${tourist}" style="border-radius: 10% 10% 10% 10%">
+				<img class="card-img-top" th:src="@{${tour.image}}" style="max-height: 170px; border-radius: 60%; margin-top: -30px; max-width: 60%; margin-left: 20%;" alt="Card image cap">
+				<div class="card-body">
+					<a th:href="@{/userPage(username=${tour.email})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #014c8c; font-size: 25px" th:text="${tour.name}">Card title</h5></a>
+					<p class="card-tex" th:text="${tour.aboutMe}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<a th:href="@{/userPage(username=${tour.email})}" ><p id="read">Learn more</p></a>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Country: <i th:text="${tour.country}"></i> Languages:<i th:text="${tour.languages}"></i></small>
 				</div>
 			</div>
 		</div>

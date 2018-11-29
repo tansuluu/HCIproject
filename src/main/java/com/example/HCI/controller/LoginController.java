@@ -60,7 +60,7 @@ public class LoginController {
             modelAndView.setViewName("registration");
         } else {
             user.setImage("member.png");
-            if (file!=null){
+            if (file!=null && !file.isEmpty()){
                 storageService.saveAvatar(file);
                 user.setImage(file.getOriginalFilename());
             }
