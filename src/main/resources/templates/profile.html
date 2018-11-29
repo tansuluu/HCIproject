@@ -154,7 +154,13 @@
                         </div>
                         <div class="col-md-7">
                             <div class="row person_details">
-                                <h3>Hi I'm <span th:text="${user.name}"></span></h3>
+                                <div th:if="${#request.userPrincipal != null}">
+                                <h3 th:if="${user.email!=#request.userPrincipal.name}">Hi I'm<span th:text="${user.name}"></span></h3>
+                                    <h3 th:if="${user.email==#request.userPrincipal.name}">Welcome <span th:text="${user.name}"></span></h3>
+                                </div>
+                                <div th:if="${#request.userPrincipal== null}">
+                                    <h3>Hi I'm<span th:text="${user.name}"></span></h3>
+                                </div>
                                 <p th:text="${user.aboutMe}" style="width: 100%"></p>
                                 <div class="person_information">
                                     <ul>
