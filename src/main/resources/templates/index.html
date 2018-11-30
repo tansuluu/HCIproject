@@ -284,37 +284,12 @@
 
 <!-- Offers -->
 
-<div class="offers">
-	<div class="container">
-		<div class="row">
-			<div class="col text-center">
-				<h2 class="section_title" style="padding-bottom: 40px">The best offers of locals</h2>
-			</div>
-		</div>
-		<div class="card-deck">
-			<div class="card" th:each="place:${places}">
-				<img class="card-img-top" th:src="@{${'/image/'+place.photo1}}" style="max-height: 170px" alt="Card image cap">
-				<div class="card-body">
-					<a th:href="@{/placeInfo(id=${place.id})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #0c5460; font-size: 25px" th:text="${place.title}">Card title</h5></a>
-					<p class="card-text" th:text="${place.text}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<a th:href="@{/placeInfo(id=${place.id})}" ><p id="read">Read more</p></a>
-				</div>
-				<div class="card-footer">
-
-					<small class="text-muted" ><a th:href="@{/userPage(username=${place.usarname})}" th:text="${'posted by '+place.usarname}"></a></small>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-
-
 	<section class="ftco-section testimony-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-5">
 				<div class="col-md-7 text-center heading-section ftco-animate">
-					<span class="subheading">Tourists</span>
-					<h2>Our active tourists</h2>
+					<span class="subheading">GIDS</span>
+					<h2>Our local gids</h2>
 				</div>
 			</div>
 			<div class="row ftco-animate">
@@ -325,8 +300,8 @@
 							<div class="text">
 								<a th:href="@{/userPage(username=${gid.email})}" ><p class="name" th:text="${gid.name}"></p></a>
 								<p class="mb-5" th:text="${gid.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								<p class="position">Experience<i style="color: #0c5460" th:text="${gid.experience}"></i></p>
-								<p class="position">Languages:<i style="color: #0c5460" th:text="${gid.languages}"></i></p>
+								<p class="position">Experience <i style="color: #0c5460" th:text="${gid.experience}"></i></p>
+								<p class="position">Languages: <i style="color: #0c5460" th:text="${gid.languages}"></i></p>
 							</div>
 						</div>
 					</div>
@@ -415,7 +390,10 @@
 	</section>
 
 	<!-- Copyright -->
-
+<div th:each="i : ${#numbers.sequence( 1, 81/20)}">
+	<p th:text="${ i }"></p> <!-- THIS loops 4 times, instead of 5 -->
+	<p>jhgfghjnkl;kjgytfdrtfgyuhjikl;kjiuhgytfdfghbjkljhgfdsxfcgvh</p>
+</div>
 	<div class="copyright">
 		<div class="container">
 			<div class="row">
