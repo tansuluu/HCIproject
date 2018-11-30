@@ -308,156 +308,167 @@
 	</div>
 	</div>
 
-<div class="offers" style="background: linear-gradient(to right, #f189ff, #a5cdff);">
-	<div class="cta_background" style="background-image:url(images/IK.jpg)"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col text-center">
-				<h2 class="section_title" style="padding-bottom: 50px; color:white">The best local gids</h2>
-			</div>
-		</div>
-		<div class="card-deck">
-			<div class="card" th:each="gid:${gids}" style="border-radius: 10% 10% 10% 10%">
-				<img class="card-img-top" th:src="@{${gid.image}}" style="max-height: 170px; border-radius: 60%; margin-top: -30px; max-width: 60%; margin-left: 20%;" alt="Card image cap">
-				<div class="card-body">
-					<a th:href="@{/userPage(username=${gid.email})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #014c8c; font-size: 25px" th:text="${gid.name}">Card title</h5></a>
-					<p class="card-tex" th:text="${gid.aboutMe}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<a th:href="@{/userPage(username=${gid.email})}" ><p id="read2">Learn more</p></a>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Experience: <i th:text="${gid.experience}"></i> years</small>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
-<section class="ftco-section parallax-img" style="background-image: url('images/IK.jpg');" data-stellar-background-ratio="0.5">
-	<div class="overlay"></div>
-	<div class="container">
-		<div class="row justify-content-center mb-5 pb-5">
-			<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-				<h2>Our offers</h2>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="ftco-section bg-light">
-	<div class="container special-dish">
-		<div class="row d-flex no-gutters">
-			<div class="col-lg-6">
-				<div class="block-3 d-md-flex ftco-animate" th:each="place:${places}">
-					<div class="image order-last" th:style="'background: url(' + ${'/image/'+place.photo1} + ');'"></div>
-					<div class="text text-center order-first">
-						<h2 class="heading" th:text="${place.title}"></h2>
-						<p th:text="${place.text}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<span class="price" th:text="${place.likes}" class="ion-heart"></span>
-					</div>
+	<section class="ftco-section testimony-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-5">
+				<div class="col-md-7 text-center heading-section ftco-animate">
+					<span class="subheading">Tourists</span>
+					<h2>Our active tourists</h2>
 				</div>
 			</div>
-			<div class="col-lg-6">
-				<div class="block-3 d-md-flex ftco-animate">
-					<div class="image order-last" style="background-image: url(images/dish-5.jpg);"></div>
-					<div class="text text-center order-first">
-						<h2 class="heading">Chopsuey</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<span class="price">from $10.00</span>
-					</div>
-				</div>
-				<div class="block-3 d-md-flex ftco-animate">
-					<div class="image order-first" style="background-image: url(images/dish-6.jpg);"></div>
-					<div class="text text-center order-first">
-						<h2 class="heading">Roasted Chieken</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<span class="price">from $10.00</span>
+			<div class="row ftco-animate">
+				<div class="carousel owl-carousel ftco-owl" >
+					<div class="item text-center" th:each="gid:${gids}">
+						<div class="testimony-wrap p-4 pb-5">
+							<div class="user-img mb-4"  th:style="'background: url(' + ${gid.image} + ');border: 1px solid red; background-size: cover'"></div>
+							<div class="text">
+								<a th:href="@{/userPage(username=${gid.email})}" ><p class="name" th:text="${gid.name}"></p></a>
+								<p class="mb-5" th:text="${gid.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								<p class="position">Experience<i style="color: #0c5460" th:text="${gid.experience}"></i></p>
+								<p class="position">Languages:<i style="color: #0c5460" th:text="${gid.languages}"></i></p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<section class="ftco-section testimony-section">
-	<div class="container">
-		<div class="row justify-content-center mb-5 pb-5">
-			<div class="col-md-7 text-center heading-section ftco-animate">
-				<span class="subheading">Tourists</span>
-				<h2>Our active tourists</h2>
+	<section class="ftco-section parallax-img" style="background-image: url('images/IK.jpg');" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-5">
+				<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+					<h2>Our offers</h2>
+				</div>
 			</div>
 		</div>
-		<div class="row ftco-animate">
-			<div class="carousel owl-carousel ftco-owl" >
-				<div class="item text-center" th:each="tour:${tourist}">
-					<div class="testimony-wrap p-4 pb-5">
-						<div class="user-img mb-4"  th:style="'background: url(' + ${tour.image} + ');border: 1px solid red; background-size: cover'"></div>
-						<div class="text">
-							<a th:href="@{/userPage(username=${tour.email})}" ><p class="name" th:text="${tour.name}"></p></a>
-							<p class="mb-5" th:text="${tour.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<p class="position">Country: <i style="color: #0c5460" th:text="${tour.country}"></i></p>
-							<p class="position">Languages:<i style="color: #0c5460" th:text="${tour.languages}"></i></p>
+	</section>
+	<section class="ftco-section bg-light">
+		<div class="container special-dish">
+			<div class="row d-flex no-gutters">
+				<div class="col-lg-6">
+					<div class="block-3 d-md-flex ftco-animate">
+						<div class="image order-last" style="background-image: url(images/SK.jpg);"></div>
+						<div class="text text-center order-first">
+							<a href="/placeInfo?id=103"><h2 class="heading">Sary Chelek</h2></a>
+							<p>Sary-Chelek is a mountain lake located in Sary-Chelek Nature Reserve in Jalal-Abad Province in Western Kyrgyzstan</p>
+							<span class="price">from $50.00</span>
+						</div>
+					</div>
+					<div class="block-3 d-md-flex ftco-animate">
+						<div class="image order-first" style="background-image: url(images/sul.jpg);"></div>
+						<div class="text text-center order-first">
+							<a href="/placeInfo?id=9"><h2 class="heading">Sulaiman-Too</h2></a>
+							<p>The Sulayman Mountain is the only World Heritage Site located entirely in the country of Kyrgyzstan</p>
+							<span class="price">from $50.00</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="block-3 d-md-flex ftco-animate">
+						<div class="image order-last" style="background-image: url(images/son.jpg);"></div>
+						<div class="text text-center order-first">
+							<h2 class="heading">Son-kol</h2>
+							<p>Song Köl is an alpine lake in northern Naryn Province, Kyrgyzstan. It lies at an altitude of 3016 m</p>
+							<span class="price">from $60.00</span>
+						</div>
+					</div>
+					<div class="block-3 d-md-flex ftco-animate">
+						<div class="image order-first" style="background-image: url(images/man.jpg);"></div>
+						<div class="text text-center order-first">
+							<a><h2 class="heading">Manas Ordo</h2></a>
+							<p>Legend says that Manas Ordo, in Talas Province, is the final resting place of the great warrior and Kyrgyz hero</p>
+							<span class="price">from $60.00</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section testimony-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-5">
+				<div class="col-md-7 text-center heading-section ftco-animate">
+					<span class="subheading">Tourists</span>
+					<h2>Our active tourists</h2>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="carousel owl-carousel ftco-owl" >
+					<div class="item text-center" th:each="tour:${tourist}">
+						<div class="testimony-wrap p-4 pb-5">
+							<div class="user-img mb-4"  th:style="'background: url(' + ${tour.image} + ');border: 1px solid red; background-size: cover'"></div>
+							<div class="text">
+								<a th:href="@{/userPage(username=${tour.email})}" ><p class="name" th:text="${tour.name}"></p></a>
+								<p class="mb-5" th:text="${tour.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								<p class="position">Country: <i style="color: #0c5460" th:text="${tour.country}"></i></p>
+								<p class="position">Languages:<i style="color: #0c5460" th:text="${tour.languages}"></i></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Copyright -->
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 order-lg-1 order-2  ">
+					<div class="copyright_content d-flex flex-row align-items-center">
+						<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Brigada
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+					</div>
+				</div>
+				<div class="col-lg-9 order-lg-2 order-1">
+					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
+						<div class="footer_nav">
+							<ul class="footer_nav_list">
+								<li class="footer_nav_item"><a href="#">home</a></li>
+								<li class="footer_nav_item"><a href="about.html">about us</a></li>
+								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
+								<li class="footer_nav_item"><a href="blog.html">news</a></li>
+								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
 
-<!-- Copyright -->
-
-<div class="copyright">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 order-lg-1 order-2  ">
-				<div class="copyright_content d-flex flex-row align-items-center">
-					<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Brigada
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-				</div>
-			</div>
-			<div class="col-lg-9 order-lg-2 order-1">
-				<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
-					<div class="footer_nav">
-						<ul class="footer_nav_list">
-							<li class="footer_nav_item"><a href="#">home</a></li>
-							<li class="footer_nav_item"><a href="about.html">about us</a></li>
-							<li class="footer_nav_item"><a href="offers.html">offers</a></li>
-							<li class="footer_nav_item"><a href="blog.html">news</a></li>
-							<li class="footer_nav_item"><a href="contact.html">contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
-</div>
 
-</div>
-
-<script src="folderforindex/js/jquery-3.2.1.min.js"></script>
-<script src="folderforindex/styles/bootstrap4/popper.js"></script>
-<script src="folderforindex/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="folderforindex/plugins/easing/easing.js"></script>
-<script src="folderforindex/js/custom.js"></script>
-<div>
-	<script src="tast/js/jquery.min.js"></script>
-	<script src="tast/js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="tast/js/popper.min.js"></script>
-	<script src="tast/js/bootstrap.min.js"></script>
-	<script src="tast/js/jquery.easing.1.3.js"></script>
-	<script src="tast/js/jquery.waypoints.min.js"></script>
-	<script src="tast/js/jquery.stellar.min.js"></script>
-	<script src="tast/js/owl.carousel.min.js"></script>
-	<script src="tast/js/jquery.magnific-popup.min.js"></script>
-	<script src="tast/js/aos.js"></script>
-	<script src="tast/js/jquery.animateNumber.min.js"></script>
-	<script src="tast/js/bootstrap-datepicker.js"></script>
-	<script src="tast/js/jquery.timepicker.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="tast/js/google-map.js"></script>
-	<script src="tast/js/main.js"></script>
-</div>
+	<script src="folderforindex/js/jquery-3.2.1.min.js"></script>
+	<script src="folderforindex/styles/bootstrap4/popper.js"></script>
+	<script src="folderforindex/styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+	<script src="folderforindex/plugins/easing/easing.js"></script>
+	<script src="folderforindex/js/custom.js"></script>
+	<div>
+		<script src="tast/js/jquery.min.js"></script>
+		<script src="tast/js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="tast/js/popper.min.js"></script>
+		<script src="tast/js/bootstrap.min.js"></script>
+		<script src="tast/js/jquery.easing.1.3.js"></script>
+		<script src="tast/js/jquery.waypoints.min.js"></script>
+		<script src="tast/js/jquery.stellar.min.js"></script>
+		<script src="tast/js/owl.carousel.min.js"></script>
+		<script src="tast/js/jquery.magnific-popup.min.js"></script>
+		<script src="tast/js/aos.js"></script>
+		<script src="tast/js/jquery.animateNumber.min.js"></script>
+		<script src="tast/js/bootstrap-datepicker.js"></script>
+		<script src="tast/js/jquery.timepicker.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="tast/js/google-map.js"></script>
+		<script src="tast/js/main.js"></script>
+	</div>
 
 </body>
 
