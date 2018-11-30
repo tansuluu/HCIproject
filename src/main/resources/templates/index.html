@@ -331,12 +331,13 @@
 		</div>
 	</div>
 </div>
-<section class="ftco-section parallax-img" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+
+<section class="ftco-section parallax-img" style="background-image: url('images/IK.jpg');" data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row justify-content-center mb-5 pb-5">
 			<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-				<h2>Our Specialties</h2>
+				<h2>Our offers</h2>
 			</div>
 		</div>
 	</div>
@@ -345,20 +346,12 @@
 	<div class="container special-dish">
 		<div class="row d-flex no-gutters">
 			<div class="col-lg-6">
-				<div class="block-3 d-md-flex ftco-animate">
-					<div class="image order-last" style="background-image: url(images/dish-3.jpg);"></div>
+				<div class="block-3 d-md-flex ftco-animate" th:each="place:${places}">
+					<div class="image order-last" th:style="'background: url(' + ${'/image/'+place.photo1} + ');'"></div>
 					<div class="text text-center order-first">
-						<h2 class="heading">Beef Steak</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<span class="price">from $10.00</span>
-					</div>
-				</div>
-				<div class="block-3 d-md-flex ftco-animate">
-					<div class="image order-first" style="background-image: url(images/dish-4.jpg);"></div>
-					<div class="text text-center order-first">
-						<h2 class="heading">Beef Ribs Steak</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<span class="price">from $10.00</span>
+						<h2 class="heading" th:text="${place.title}"></h2>
+						<p th:text="${place.text}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
+						<span class="price" th:text="${place.likes}" class="ion-heart"></span>
 					</div>
 				</div>
 			</div>
@@ -383,29 +376,7 @@
 		</div>
 	</div>
 </section>
-<div class="offers">
-	<div class="cta_background"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col text-center">
-				<h2 class="section_title" style="padding-bottom: 50px; color: #0c5460 ">The best local gids</h2>
-			</div>
-		</div>
-		<div class="card-deck">
-			<div class="card" th:each="tour:${tourist}" style="border-radius: 10% 10% 10% 10%">
-				<img class="card-img-top" th:src="@{${tour.image}}" style="max-height: 170px; border-radius: 60%; margin-top: -30px; max-width: 60%; margin-left: 20%;" alt="Card image cap">
-				<div class="card-body">
-					<a th:href="@{/userPage(username=${tour.email})}" ><h5 class="card-title" style="font-family: 'Baskerville Old Face'; color: #014c8c; font-size: 25px" th:text="${tour.name}">Card title</h5></a>
-					<p class="card-tex" th:text="${tour.aboutMe}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					<a th:href="@{/userPage(username=${tour.email})}" ><p id="read">Learn more</p></a>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted" style="font-size: 12px">Country: <i th:text="${tour.country}"></i>&nbsp Languages:<i th:text="${tour.languages}"></i></small>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+
 <section class="ftco-section testimony-section">
 	<div class="container">
 		<div class="row justify-content-center mb-5 pb-5">
@@ -418,12 +389,12 @@
 			<div class="carousel owl-carousel ftco-owl" >
 				<div class="item text-center" th:each="tour:${tourist}">
 					<div class="testimony-wrap p-4 pb-5">
-						<div class="user-img mb-4"  th:style="'background: url(' + ${tour.image} + ');border: 1px solid red;'"></div>
+						<div class="user-img mb-4"  th:style="'background: url(' + ${tour.image} + ');border: 1px solid red; background-size: cover'"></div>
 						<div class="text">
-							<p class="star-rate" th:text="${tour.name}"></p>
-							<p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<p class="name">Dennis Green</p>
-							<span class="position">Guests from Italy</span>
+							<a th:href="@{/userPage(username=${tour.email})}" ><p class="name" th:text="${tour.name}"></p></a>
+							<p class="mb-5" th:text="${tour.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p class="position">Country: <i style="color: #0c5460" th:text="${tour.country}"></i></p>
+							<p class="position">Languages:<i style="color: #0c5460" th:text="${tour.languages}"></i></p>
 						</div>
 					</div>
 				</div>
