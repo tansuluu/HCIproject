@@ -193,15 +193,15 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Description</label>
-                    <input type="text" class="form-control" placeholder="Description">
+                    <textarea type="text" class="form-control" placeholder="Description"></textarea>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="validation-message">Person</label>
+                    <label  class="validation-message">Category</label>
                     <div class="select-wrap one-third">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select class="form-control" th:field="*{category}">
+                      <select class="form-control" >
                         <option value=""> -- </option>
                         <option value="Nature">Nature</option>
                         <option value="Parks">Parks</option>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="col-md-12 mt-3">
                   <div class="form-group">
-                    <input type="submit" value="Make a Reservation" class="btn btn-primary py-3 px-5">
+                    <input type="submit" value="new blog" class="btn btn-primary py-3 px-5">
                   </div>
                 </div>
               </div>

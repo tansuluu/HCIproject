@@ -25,14 +25,14 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(Model model){
-//        ArrayList list= (ArrayList)placeService.getTop3PlaceByOrderByView();
-//        ArrayList list2=userService.getAllByStatus("gid");
-//        ArrayList list1=userService.getAllByStatus("tourist");
-//        model.addAttribute("places",list);
-//        model.addAttribute("gids", list2);
-//        model.addAttribute("tourist", list1);
+        ArrayList list= (ArrayList)placeService.getTop3PlaceByOrderByView();
+        ArrayList list2=userService.getAllByStatus("gid");
+        ArrayList list1=userService.getAllByStatus("tourist");
+        model.addAttribute("places",list);
+        model.addAttribute("gids", list2);
+        model.addAttribute("tourist", list1);
 
-        return "newBlog";
+        return "index";
     }
 }
 
