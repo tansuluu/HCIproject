@@ -28,14 +28,6 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="folderforlogin/css/util.css">
 	<link rel="stylesheet" type="text/css" href="folderforlogin/css/mstyle.css">
-	<style>
-		#tourist p:hover{
-			color:#1da1f2;
-		}
-		#gid1 p :hover {
-			color: #1da1f2;
-		}
-	</style>
 <!--===============================================================================================-->
 </head>
 <body>
@@ -47,15 +39,16 @@
 			<span class="login100-form-title p-b-37" style="padding-left: 60px">
 					Sign Up as:
 			</span>
+            <div id="tur">
+                <a><p class="login100-form-title p-b-37"  style="color: #4b5257;padding-left: 20px ">Tourist </p></a>
+                <a><p class="login100-form-title p-b-37" id="gid1">GID</p></a>
+            </div>
+            <div id="gid">
+                <a><p class="login100-form-title p-b-37"  style="color: #0c5460;padding-left: 20px">GID</p></a>
+                <a><p class="login100-form-title p-b-37" id="tourist">Tourist </p></a>
+            </div>
 			<form class="login100-form validate-form" th:action="@{/registration}" method="post" th:object="${user}" enctype="multipart/form-data">
-				<div id="tur">
-					<p class="login100-form-title p-b-37"  style="color: #4b5257;padding-left: 20px ">Tourist </p>
-					<p class="login100-form-title p-b-37" id="gid1" style="color: #dcdfe5; padding-left: 70px">GID</p>
-				</div>
-				<div id="gid">
-					<p class="login100-form-title p-b-37"  style="color: #0c5460;padding-left: 20px">GID</p>
-					<p class="login100-form-title p-b-37" id="tourist" style="color: #dcdfe5; padding-left:70px"; >Tourist </p>
-				</div>
+
 				<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  class="validation-message"></label>
 				<div class="wrap-input100 validate-input m-b-20" >
 					<input class="input100" type="text" th:field="*{name}" name="name" placeholder="First name & last name">

@@ -407,8 +407,6 @@ iframe {
     right: 23px;
 }
 
-
-
 /*//////////////////////////////////////////////////////////////////
 [ Social item ]*/
 
@@ -448,7 +446,13 @@ iframe {
     -o-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
     -ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
 }
-
+#tourist{
+    color: #dcdfe5;
+    padding-left:70px}
+#gid1{
+    color: #dcdfe5;
+    padding-left: 70px
+}
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/
 
