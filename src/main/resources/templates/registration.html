@@ -26,8 +26,8 @@
 	<link rel="stylesheet" type="text/css" href="folderforlogin/vendor/daterangepicker/daterangepicker.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{/folderforlogin/css/util.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/folderforlogin/css/main.css}">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/css/util.css">
+	<link rel="stylesheet" type="text/css" href="folderforlogin/css/mai.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -36,15 +36,18 @@
 	<div class="container-login100" style="background-image: url('/folderforlogin/images/k2.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<h5><span class="text-success" th:utext="${successMessage}"></span></h5>
-
+			<span class="login100-form-title p-b-37" style="padding-left: 20px">
+					Sign Up as:
+			</span>
 			<form class="login100-form validate-form" th:action="@{/registration}" method="post" th:object="${user}" enctype="multipart/form-data">
-				<span class="login100-form-title p-b-37" id="tur">
-					Sign Up as Tourist
-				</span>
-				<span class="login100-form-title p-b-37" id="gid">
-					Sign Up as GID
-				</span>
-
+				<div id="tur">
+					<p class="login100-form-title p-b-37"  style="color: #4b5257 ">Tourist </p>
+					<p class="login100-form-title p-b-37" id="gid1" style="color: #0c5460; padding-left: 10px">GID</p>
+				</div>
+				<div id="gid">
+					<p class="login100-form-title p-b-37"  style="color: #0c5460">GID</p>
+					<p class="login100-form-title p-b-37" id="tourist" style="color: #4b5257; padding-left: 10px"; >Tourist  </p>
+				</div>
 				<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  class="validation-message"></label>
 				<div class="wrap-input100 validate-input m-b-20" >
 					<input class="input100" type="text" th:field="*{name}" name="name" placeholder="First name & last name">
@@ -101,16 +104,6 @@
 						Sign Up
 					</button>
 				</div>
-				<div class="text-center" id="gid2">
-					<span class="login100-form-title p-b-37" style="font-size: 23px;margin-top: 10px" id="tourist">
-						Sign Up as Tourist
-					</span>
-				</div>
-				<div class="text-center" id="tur2">
-					<span class="login100-form-title p-b-37" style="font-size: 23px;margin-top: 10px" id="gid1">
-						Sign Up as GID
-					</span>
-				</div>
 				<div class="text-center">
 
 					<a th:href="@{/login}" class="txt2 hov1">
@@ -131,9 +124,8 @@
         $(document).ready(function() {
             $("#tur").hide();
             $("#tur1").hide();
-            $("#tur2").hide();
+
             $('#tourist').on('click', function () {
-                console.log("ffdv");
                 $("#gid").hide();
                 $("#gid2").hide();
                 $("#gid3").hide();
@@ -141,14 +133,12 @@
                 $("#tur").show();
                 $("#tur1").show();
                 $("#tur1").addClass("validate-input m-b-25");
-                $("#tur2").show();
             });
             $('#gid1').on('click', function () {
                 console.log("ffdvgdfrsed");
                 $("#tur").hide();
                 $("#tur1").hide();
                 $("#tur1").removeClass("validate-input m-b-25");
-                $("#tur2").hide();
                 $("#gid").show();
                 $("#gid2").show();
                 $("#gid3").show();
