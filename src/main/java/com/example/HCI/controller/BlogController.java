@@ -85,6 +85,6 @@ public class BlogController {
         Comment comment=new Comment();
         model.addAttribute("comment",comment);
 
-        return "places";
+        return "blogs";
     }
 }
