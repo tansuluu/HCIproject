@@ -17,6 +17,8 @@ public class Comment {
     private String username;
     @Column(name = "idPlace")
     private long idPlace;
+    @Column(name = "blogID ")
+    private long blogID;
     @Column(name = "text")
     private String comentText;
     @Temporal(TemporalType.TIMESTAMP)
@@ -80,5 +82,13 @@ public class Comment {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public long getBlogID() {
+        return blogID;
+    }
+
+    public void setBlogID(long blogID) {
+        this.blogID = blogID;
     }
 }

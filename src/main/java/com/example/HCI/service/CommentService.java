@@ -18,6 +18,9 @@ public class CommentService {
     public List<Comment> getAllByIdPlace(long id){
         return commentRepository.getAllByIdPlace(id);
     }
+    public List<Comment> getAllByBlogID(long id){
+        return commentRepository.getAllByBlogID(id);
+    }
 
     public Comment save(Comment comment){
         comment.setDateCom(Calendar.getInstance().getTime());
