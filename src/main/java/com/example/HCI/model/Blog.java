@@ -13,13 +13,13 @@ public class Blog {
     @Column(name = "id", nullable = false)
     private long id;
     @Column(name = "title", length = 128)
-    @NotEmpty(message = "*Please provide a title")
+    @NotEmpty(message = "*Please provide a ")
     private String title;
     @Column(name = "category", length = 128)
-    @NotEmpty(message = "*Please choose a category")
+    @NotEmpty(message = "*Please choose a ")
     private String category;
     @Column(name = "text", length = 700)
-    @NotEmpty(message = "*Please write description")
+    @NotEmpty(message = "*Please write s")
     private String text;
     @Column(name = "photo1", length = 200)
     private String photo1;
