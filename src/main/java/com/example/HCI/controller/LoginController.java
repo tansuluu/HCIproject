@@ -75,8 +75,9 @@ public class LoginController {
                 userService.saveUser(user, "TOURIST");
                 modelAndView.addObject("successMessage", "User has been registered successfully as Tourist");
             }
+
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("registration");
+            modelAndView.setViewName("login");
 
         }
         return modelAndView;
