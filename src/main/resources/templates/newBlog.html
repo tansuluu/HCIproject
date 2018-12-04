@@ -1,13 +1,14 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <title>Opentravel</title>
+  <head>
+    <title>Tasty - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Travelix Project">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="folderforindex/styles/bootstrap4/bootstrap.min.css">
     <link href="folderforindex/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -16,80 +17,84 @@
     <link rel="stylesheet" type="text/css" href="folderforindex/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="folderforindex/styles/my.css">
     <link rel="stylesheet" type="text/css" href="folderforindex/styles/responsive.css">
-    <div>
-        <link rel="stylesheet" href="tast/css/open-iconic-bootstrap.min.css">
-        <link rel="stylesheet" href="tast/css/animate.css">
-        <link rel="stylesheet" href="tast/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="tast/css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="tast/css/magnific-popup.css">
-        <link rel="stylesheet" href="tast/css/aos.css">
-        <link rel="stylesheet" href="tast/css/ionicons.min.css">
-        <link rel="stylesheet" href="tast/css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="tast/css/jquery.timepicker.css">
-        <link rel="stylesheet" href="tast/css/flaticon.css">
-        <link rel="stylesheet" href="tast/css/icomoon.css">
-        <link rel="stylesheet" href="tast/css/style.css">
-    </div>
 
-</head>
+    <link rel="stylesheet" href="tast/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="tast/css/animate.css">
 
-<body>
+    <link rel="stylesheet" href="tast/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="tast/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="tast/css/magnific-popup.css">
 
-<div class="super_container">
+    <link rel="stylesheet" href="tast/css/aos.css">
+
+    <link rel="stylesheet" href="tast/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="tast/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="tast/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="tast/css/flaticon.css">
+    <link rel="stylesheet" href="tast/css/icomoon.css">
+    <link rel="stylesheet" href="tast/css/style.css">
+  </head>
+  <body>
+
+
+  <div class="super_container">
 
     <!-- Header -->
 
     <header class="header">
 
-        <!-- Top Bar -->
+      <!-- Top Bar -->
 
-        <div class="top_bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col d-flex flex-row">
-                        <div class="social">
-                            <ul class="social_list">
+      <div class="top_bar">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex flex-row">
+              <div class="social">
+                <ul class="social_list">
 
-                                <li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-                                <li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                  <li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                  <li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                  <li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 
-                            </ul>
-                        </div>
-                        <div class="user_box ml-auto">
-                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/logout}">Logout</a></div>
-                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
+                </ul>
+              </div>
+              <div class="user_box ml-auto">
+                <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/logout}">Logout</a></div>
+                <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal !=null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
 
-                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/registration}">Register</a></div>
-                            <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
+                <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/registration}">Register</a></div>
+                <div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
 
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Main Navigation -->
+      <!-- Main Navigation -->
 
-        <nav class="main_nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo_container">
-                            <div class="logo"><a href=""><img src="" alt="">opentravel</a></div>
-                        </div>
-                        <div class="main_nav_container ml-auto">
-                            <ul class="main_nav_list">
-                                <li class="main_nav_item"><a th:href="@{/}">home</a></li>
-                                <li class="main_nav_item"><a th:href="@{/about}">about us</a></li>
-                                <li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
-                                <li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
-                                <li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="content_search ml-lg-0 ml-auto">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      <nav class="main_nav">
+        <div class="container">
+          <div class="row">
+            <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
+              <div class="logo_container">
+                <div class="logo"><a href=""><img src="" alt="">opentravel</a></div>
+              </div>
+              <div class="main_nav_container ml-auto">
+                <ul class="main_nav_list">
+                  <li class="main_nav_item"><a th:href="@{/}">home</a></li>
+                  <li class="main_nav_item"><a th:href="@{/about}">about us</a></li>
+                  <li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+                  <li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
+                  <li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
+                </ul>
+              </div>
+              <div class="content_search ml-lg-0 ml-auto">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 							width="17px" height="17px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
 								<g>
 									<g>
@@ -110,323 +115,171 @@
 									</g>
 								</g>
 							</svg>
-                        </div>
+              </div>
 
-                        <form id="search_form" class="search_form bez_1">
-                            <input type="search" class="search_content_input bez_1">
-                        </form>
+              <form id="search_form" class="search_form bez_1">
+                <input type="search" class="search_content_input bez_1">
+              </form>
 
-                        <div class="hamburger">
-                            <i class="fa fa-bars trans_200"></i>
-                        </div>
-                    </div>
-                </div>
+              <div class="hamburger">
+                <i class="fa fa-bars trans_200"></i>
+              </div>
             </div>
-        </nav>
+          </div>
+        </div>
+      </nav>
 
     </header>
 
     <div class="menu trans_500">
-        <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
-            <div class="menu_close_container"><div class="menu_close"></div></div>
-            <div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
-            <ul>
-                <li class="menu_item"><a th:href="@{/}">home</a></li>
-                <li class="menu_item"><a th:href="@{/about}">about us</a></li>
-                <li class="menu_item"><a th:href="@{/offers}">offers</a></li>
-                <li class="menu_item"><a th:href="@{/blog}">blog</a></li>
-                <li class="menu_item"><a th:href="@{/contact}">contact</a></li>
-            </ul>
-        </div>
+      <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="menu_close_container"><div class="menu_close"></div></div>
+        <div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+        <ul>
+          <li class="menu_item"><a th:href="@{/}">home</a></li>
+          <li class="menu_item"><a th:href="@{/about}">about us</a></li>
+          <li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+          <li class="menu_item"><a th:href="@{/blog}">blog</a></li>
+          <li class="menu_item"><a th:href="@{/contact}">contact</a></li>
+        </ul>
+      </div>
     </div>
 
     <!-- Home -->
 
     <div class="home">
 
-        <!-- Home Slider -->
+      <!-- Home Slider -->
 
-        <div class="home_slider_container">
+      <div class="home_slider_container">
 
-            <div class="owl-carousel owl-theme home_slider">
+        <div class="owl-carousel owl-theme home_slider">
 
-                <!-- Slider Item -->
-                <div class="owl-item home_slider_item">
-                    <div class="home_slider_background" style="background-image:url(images/shutterstock_472250488.jpg)"></div>
+          <!-- Slider Item -->
+          <div class="owl-item home_slider_item">
+            <div class="home_slider_background" style="background-image:url(images/dow.jpg)"></div>
 
-                    <div class="home_slider_content text-center">
-                        <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-                            <h1 style="font-size: 45px">discover</h1>
-                            <h1 style="font-size: 85px">Kyrgyzstan</h1>
-                            <div class="button home_slider_button"><div class="button_bcg"></div><a th:href="@{/about}">explore now</a></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="home_slider_content text-center">
+              <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+                <h1 style="font-size: 45px">post</h1>
+                <h1 style="font-size: 85px">a new blog</h1>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
-</div>
-
-<!-- Search -->
-<!-- CTA -->
-
-
-
-<!-- Intro -->
-
-<div class="intro">
+  </div>
+    <!-- END nav -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row no-gutters justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2>Write a new blog</h2>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-4 ftco-animate img" style="background-image: url(images/и.jpg);"></div>
+          <div class="col-md-8 ftco-animate makereservation p-5 bg-light">
+            <form action="#">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Title</label>
+                    <input type="text" class="form-control" placeholder="Title">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Description</label>
+                    <input type="text" class="form-control" placeholder="Description">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="validation-message">Person</label>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select class="form-control" th:field="*{category}">
+                        <option value=""> -- </option>
+                        <option value="Nature">Nature</option>
+                        <option value="Parks">Parks</option>
+                        <option value="Culture">Culture</option>
+                        <option value="Hotel">Hotel</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Photo 1</label>
+                    <input type="file" class="form-control"  name="file1">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Photo 2</label>
+                    <input type="file" class="form-control"  name="file2">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Photo 3</label>
+                    <input type="file" class="form-control"  name="file3">
+                  </div>
+                </div>
+                <div class="col-md-12 mt-3">
+                  <div class="form-group">
+                    <input type="submit" value="Make a Reservation" class="btn btn-primary py-3 px-5">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  <div class="copyright">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2 class="intro_title text-center">Explore Find Interact.</h2>
-            </div>
+      <div class="row">
+        <div class="col-lg-3 order-lg-1 order-2  ">
+          <div class="copyright_content d-flex flex-row align-items-center">
+            <div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Brigada
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="intro_text text-center">
-                    <p>You’ll always have fascinating places to be and friendly people to see. Our goal is to help you to find those places and people in 3 steps. </p>
-                </div>
+        <div class="col-lg-9 order-lg-2 order-1">
+          <div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
+            <div class="footer_nav">
+              <ul class="footer_nav_list">
+                <li class="footer_nav_item"><a href="#">home</a></li>
+                <li class="footer_nav_item"><a href="about.html">about us</a></li>
+                <li class="footer_nav_item"><a href="offers.html">offers</a></li>
+                <li class="footer_nav_item"><a href="blog.html">news</a></li>
+                <li class="footer_nav_item"><a href="contact.html">contact</a></li>
+              </ul>
             </div>
+          </div>
         </div>
-        <div class="row intro_items">
-
-
-            <!-- Intro Item -->
-
-            <div class="col-lg-4 intro_col">
-                <div class="intro_item">
-                    <div class="intro_item_overlay"></div>
-                    <!-- Image by https://unsplash.com/@hellolightbulb -->
-                    <div class="intro_item_background" style="background-image:url(images/manas.jpg)"></div>
-                    <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-
-                        <div class="button intro_button"><div class="button_bcg"></div><a th:href="@{/about}">see more</a></div>
-                        <div class="intro_center text-center">
-                            <h1>Explore the country</h1>
-                            <div class="intro_price">Get to know history and interesting facts </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Intro Item -->
-
-            <div class="col-lg-4 intro_col">
-                <div class="intro_item">
-                    <div class="intro_item_overlay"></div>
-                    <!-- Image by https://unsplash.com/@dnevozhai -->
-                    <div class="intro_item_background" style="background-image:url(images/SK.jpg)"></div>
-                    <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-
-                        <div class="button intro_button"><div class="button_bcg"></div><a th:href="@{/offers}">see more</a></div>
-                        <div class="intro_center text-center">
-                            <h1>Find out nature</h1>
-                            <div class="intro_price">Learn about nature: lakes, parks, mountains</div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Intro Item -->
-
-            <div class="col-lg-4 intro_col">
-                <div class="intro_item">
-                    <div class="intro_item_overlay"></div>
-                    <!-- Image by https://unsplash.com/@willianjusten -->
-                    <div class="intro_item_background" style="background-image:url(images/d.jpg)"></div>
-                    <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-
-                        <div class="button intro_button"><div class="button_bcg"></div><a th:href="@{/blog}">see more</a></div>
-                        <div class="intro_center text-center">
-                            <h1>Interact with local's life</h1>
-                            <div class="intro_price">Contact with local people which will guide you</div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="cta">
-    <!-- Image by https://unsplash.com/@thanni -->
-    <div class="cta_background" style="background-image:url(images/image.jpg)"></div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
+    
+  
 
-                <!-- CTA Slider -->
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-                <div class="cta_slider_container">
-                    <div class="owl-carousel owl-theme cta_slider">
-                        <!-- CTA Slider Item -->
-                        <div class="owl-item cta_item text-center">
-                            <div class="cta_title">Welcome to Kyrgyzstan</div>
-
-                            <p class="cta_text">Discover the spectacular alpine lakes and vistas of remote Kyrgyzstan, tucked high up in the rugged mountain ranges of Central Asia. Nomadic traditions are alive and well in this mountainous nation; take a private Kyrgyzstan tour with a local guide
-                                and experience this ancient way of life firsthand. Your expert personal guide knows the best-kept secrets and places favoured by the Kyrgyz locals, including spectacular Ala-Archa National Park, with its glacier-topped alpine grandeur, not far from the capital city of Bishkek. Horse-riding and trekking are excellent ways to explore around scenic Lake Issyk-Köl, or the summer pastures
-                                of the country's many nomadic herders. Haggle for bargains in Osh, a thousands-year old bazaar located along the fabled Silk Road, and sleep in a yurt under the stars.</p>
-                            <div class="button cta_button"><div class="button_bcg"></div><a th:href="@{/about}">Learn more</a></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<!-- Offers -->
-
-<section class="ftco-section testimony-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-                <span class="subheading">GIDS</span>
-                <h2>Our local gids</h2>
-            </div>
-        </div>
-        <div class="row ftco-animate">
-            <div class="carousel owl-carousel ftco-owl" >
-                <div class="item text-center" th:each="gid:${gids}">
-                    <div class="testimony-wrap p-4 pb-5">
-                        <div class="user-img mb-4"  th:style="'background: url(' + ${gid.image} + ');border: 1px solid red; background-size: cover'"></div>
-                        <div class="text">
-                            <a th:href="@{/userPage(username=${gid.email})}" ><p class="name" th:text="${gid.name}"></p></a>
-                            <p class="mb-5" th:text="${gid.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p class="position">Experience <i style="color: #0c5460" th:text="${gid.experience}"></i></p>
-                            <p class="position">Languages: <i style="color: #0c5460" th:text="${gid.languages}"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section parallax-img" style="background-image: url('images/IK.jpg');" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                <h2>Our offers</h2>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="ftco-section bg-light">
-    <div class="container special-dish">
-        <div class="row d-flex no-gutters">
-            <div class="col-lg-6">
-                <div class="block-3 d-md-flex ftco-animate">
-                    <div class="image order-last" style="background-image: url(images/SK.jpg);"></div>
-                    <div class="text text-center order-first">
-                        <a href="/placeInfo?id=103"><h2 class="heading">Sary Chelek</h2></a>
-                        <p>Sary-Chelek is a mountain lake located in Sary-Chelek Nature Reserve in Jalal-Abad Province in Western Kyrgyzstan</p>
-                        <span class="price">from $50.00</span>
-                    </div>
-                </div>
-                <div class="block-3 d-md-flex ftco-animate">
-                    <div class="image order-first" style="background-image: url(images/sul.jpg);"></div>
-                    <div class="text text-center order-first">
-                        <a href="/placeInfo?id=9"><h2 class="heading">Sulaiman-Too</h2></a>
-                        <p>The Sulayman Mountain is the only World Heritage Site located entirely in the country of Kyrgyzstan</p>
-                        <span class="price">from $50.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="block-3 d-md-flex ftco-animate">
-                    <div class="image order-last" style="background-image: url(images/son.jpg);"></div>
-                    <div class="text text-center order-first">
-                        <h2 class="heading">Son-kol</h2>
-                        <p>Song Köl is an alpine lake in northern Naryn Province, Kyrgyzstan. It lies at an altitude of 3016 m</p>
-                        <span class="price">from $60.00</span>
-                    </div>
-                </div>
-                <div class="block-3 d-md-flex ftco-animate">
-                    <div class="image order-first" style="background-image: url(images/man.jpg);"></div>
-                    <div class="text text-center order-first">
-                        <a><h2 class="heading">Manas Ordo</h2></a>
-                        <p>Legend says that Manas Ordo, in Talas Province, is the final resting place of the great warrior and Kyrgyz hero</p>
-                        <span class="price">from $60.00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section testimony-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-                <span class="subheading">Tourists</span>
-                <h2>Our active tourists</h2>
-            </div>
-        </div>
-        <div class="row ftco-animate">
-            <div class="carousel owl-carousel ftco-owl" >
-                <div class="item text-center" th:each="tour:${tourist}">
-                    <div class="testimony-wrap p-4 pb-5">
-                        <div class="user-img mb-4"  th:style="'background: url(' + ${tour.image} + ');border: 1px solid red; background-size: cover'"></div>
-                        <div class="text">
-                            <a th:href="@{/userPage(username=${tour.email})}" ><p class="name" th:text="${tour.name}"></p></a>
-                            <p class="mb-5" th:text="${tour.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p class="position">Country: <i style="color: #0c5460" th:text="${tour.country}"></i></p>
-                            <p class="position">Languages:<i style="color: #0c5460" th:text="${tour.languages}"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Copyright -->
-
-<div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 order-lg-1 order-2  ">
-                <div class="copyright_content d-flex flex-row align-items-center">
-                    <div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Brigada
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-                </div>
-            </div>
-            <div class="col-lg-9 order-lg-2 order-1">
-                <div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
-                    <div class="footer_nav">
-                        <ul class="footer_nav_list">
-                            <li class="footer_nav_item"><a href="#">home</a></li>
-                            <li class="footer_nav_item"><a href="about.html">about us</a></li>
-                            <li class="footer_nav_item"><a href="offers.html">offers</a></li>
-                            <li class="footer_nav_item"><a href="blog.html">news</a></li>
-                            <li class="footer_nav_item"><a href="contact.html">contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</div>
-
-<script src="folderforindex/js/jquery-3.2.1.min.js"></script>
-<script src="folderforindex/styles/bootstrap4/popper.js"></script>
-<script src="folderforindex/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="folderforindex/plugins/easing/easing.js"></script>
-<script src="folderforindex/js/custom.js"></script>
-<div>
+    <script src="folderforindex/js/jquery-3.2.1.min.js"></script>
+    <script src="folderforindex/styles/bootstrap4/popper.js"></script>
+    <script src="folderforindex/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="folderforindex/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="folderforindex/plugins/easing/easing.js"></script>
+    <script src="folderforindex/js/custom.js"></script>
     <script src="tast/js/jquery.min.js"></script>
     <script src="tast/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="tast/js/popper.min.js"></script>
@@ -443,8 +296,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="tast/js/google-map.js"></script>
     <script src="tast/js/main.js"></script>
-</div>
 
-</body>
 
+  </body>
 </html>
