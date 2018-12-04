@@ -18,6 +18,7 @@ public class BlogService {
     public Blog findById(long id){
         return blogRepository.findById(id);
     }
+
     public Blog updateView(long id,int n){
         Blog blog=findById(id);
         blog.setView(blog.getView()+n);
