@@ -13,6 +13,5 @@ public interface PlaceRepositoty extends JpaRepository<Place,Long> {
     Place findById(long id);
     List<Place> getAllByOrderByView();
     List<Place> findByUsarname(String username);
-    List<Blog> getAll();
 
 }

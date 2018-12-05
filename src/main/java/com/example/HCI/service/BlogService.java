@@ -33,9 +33,9 @@ public class BlogService {
     public List<Blog> getTop3PlaceByOrderByView(){
         List<Blog> list=blogRepository.getAllByOrderByView();
         List<Blog> listTop=new ArrayList<>();
-//        listTop.add(list.get(0));
-//        listTop.add(list.get(1));
-//        listTop.add(list.get(2));
+        listTop.add(list.get(0));
+        listTop.add(list.get(1));
+        listTop.add(list.get(2));
         return listTop;
     }
 
@@ -45,7 +45,7 @@ public class BlogService {
     }
 
     public List<Blog> getAll() {
-        return blogRepository.getAll();
+        return blogRepository.getAllByOrderByView();
     }
 
     public Blog updateLikes(long id, int n){

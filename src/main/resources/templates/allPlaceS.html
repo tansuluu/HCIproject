@@ -172,21 +172,13 @@
           </div>
         </div>
         <div class="row d-flex no-gutters" >
-          <div class="col-lg-6">
-            <div class="block-3 d-md-flex ftco-animate">
-              <div class="image order-last" style="background-image: url(images/dish-3.jpg);"></div>
+          <div class="col-lg-6" th:each="place:${places}">
+            <div class="block-3 d-md-flex ftco-animate"  >
+              <div class="image order-last" th:style="'background: url(/image/' + ${place.photo1} + ')'"></div>
               <div class="text text-center order-first">
-                <h2 class="heading">Beef Steak</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-                <span class="price">from $10.00</span>
-              </div>
-            </div>
-            <div class="block-3 d-md-flex ftco-animate">
-              <div class="image order-first" style="background-image: url(images/dish-4.jpg);"></div>
-              <div class="text text-center order-first">
-                <h2 class="heading">Beef Ribs Steak</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-                <span class="price">from $10.00</span>
+                <h2 class="heading" th:text="${place.title}"></h2>
+                <p th:text="${place.text}" style="white-space: nowrap;width: 150px;overflow: hidden;text-overflow: ellipsis; "> </p>
+                <span class="icon-chat" th:text="${'  '+place.comNumber}"></span>
               </div>
             </div>
           </div>

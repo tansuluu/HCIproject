@@ -133,7 +133,7 @@
 			<ul>
 				<li class="menu_item"><a th:href="@{/}">home</a></li>
 				<li class="menu_item"><a th:href="@{/about}">about us</a></li>
-				<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+				<li class="menu_item"><a th:href="@{/places}">offers</a></li>
 				<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
 				<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 			</ul>
@@ -390,10 +390,7 @@
 	</section>
 
 	<!-- Copyright -->
-<div th:each="i : ${#numbers.sequence( 1, 4)}">
-	<p th:if="${i%2==0}" th:text="${ i }"></p> <!-- THIS loops 4 times, instead of 5 -->
-	<p>jhgfghjnkl;kjgytfdrtfgyuhjikl;kjiuhgytfdfghbjkljhgfdsxfcgvh</p>
-</div>
+
 	<div class="copyright">
 		<div class="container">
 			<div class="row">

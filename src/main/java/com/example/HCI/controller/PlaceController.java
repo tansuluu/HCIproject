@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -83,5 +84,12 @@ public class PlaceController {
         model.addAttribute("comment",comment);
 
         return "places";
+    }
+
+    @RequestMapping("/places")
+    public String places(Model model){
+        ArrayList<Place> list=(ArrayList)placeService.getAll();
+        model.addAttribute("places", list);
+        return "allPlaceS";
     }
 }

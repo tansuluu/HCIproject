@@ -54,4 +54,8 @@ public class PlaceService {
         return save(place);
     }
 
+    public List<Place> getAll(){
+        return placeRepositoty.getAllByOrderByView();
+    }
+
 }
