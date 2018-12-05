@@ -27,6 +27,7 @@ public class BlogService {
 
     public Blog save(Blog blog){
         blog.setDate(Calendar.getInstance().getTime());
+        blog.setSmallText(blog.getText().substring(0,100)+"...");
         return blogRepository.save(blog);
     }
 

@@ -19,8 +19,10 @@ public class Blog {
     @NotEmpty(message = "*Please choose a ")
     private String category;
     @Column(name = "text", length = 700)
-    @NotEmpty(message = "*Please write s")
+    @NotEmpty(message = "*Please write a")
     private String text;
+    @Column(name = "smallText", length = 700)
+    private String smallText;
     @Column(name = "photo1", length = 200)
     private String photo1;
     @Column(name = "photo2", length = 200)
@@ -146,5 +148,13 @@ public class Blog {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getSmallText() {
+        return smallText;
+    }
+
+    public void setSmallText(String smallText) {
+        this.smallText = smallText;
     }
 }

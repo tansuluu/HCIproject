@@ -22,6 +22,8 @@ public class Place {
         @Column(name = "text", length = 700)
         @NotEmpty(message = "*Please write description")
         private String text;
+        @Column(name = "smallText", length = 700)
+        private String smallText;
         @Column(name = "photo1", length = 200)
         private String photo1;
         @Column(name = "photo2", length = 200)
@@ -156,4 +158,16 @@ public class Place {
         public void setLikes(int likes) {
             this.likes = likes;
         }
+
+    public void setId(long id) {
+        this.id = id;
     }
+
+    public String getSmallText() {
+        return smallText;
+    }
+
+    public void setSmallText(String smallText) {
+        this.smallText = smallText;
+    }
+}

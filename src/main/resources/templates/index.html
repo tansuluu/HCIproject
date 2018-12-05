@@ -390,7 +390,10 @@
 	</section>
 
 	<!-- Copyright -->
-
+<div th:each="i : ${#numbers.sequence( 1, 4)}">
+	<p th:if="${i%2==0}" th:text="${ i }"></p> <!-- THIS loops 4 times, instead of 5 -->
+	<p>jhgfghjnkl;kjgytfdrtfgyuhjikl;kjiuhgytfdfghbjkljhgfdsxfcgvh</p>
+</div>
 	<div class="copyright">
 		<div class="container">
 			<div class="row">

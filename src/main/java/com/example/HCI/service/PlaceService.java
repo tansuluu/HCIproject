@@ -27,6 +27,7 @@ public class PlaceService {
 
     public Place save(Place place){
         place.setDate(Calendar.getInstance().getTime());
+        place.setSmallText(place.getText().substring(0,100)+"...");
         return placeRepositoty.save(place);
     }
 
