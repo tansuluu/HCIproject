@@ -171,24 +171,30 @@
             <h2>Our Places</h2>
           </div>
         </div>
-        <div class="row d-flex no-gutters" >
-          <div class="col-lg-6" th:each="i : ${#numbers.sequence( 1, places.size())}">
+        <div class="row d-flex no-gutters" th:each="i : ${#numbers.sequence( 0, places.size()-1)}">
+          <div class="col-lg-12" >
             <div class="block-3 d-md-flex ftco-animate"  th:if="${i%2==0}">
               <div class="image order-last" th:style="'background: url(/image/' + ${places.get(i).photo1} + ');background-size: cover'"></div>
               <div class="text text-center order-first">
                 <h2 class="heading" th:text="${places.get(i).title}"></h2>
                 <p th:text="${places.get(i).smallText}"> </p>
-                <span class="icon-chat" th:text="${'  '+places.get(i).comNumber}"></span>
+                <ul class="post-footer">
+                  <li><a th:href="@{/placeInfo(id=${places.get(i).id})}"  th:text="${' '+places.get(i).likes}" class="icon-heart"></a></li>
+                  <li><a th:href="@{/placeInfo(id=${places.get(i).id})}" th:text="${' '+places.get(i).comNumber}" class="icon-chat"></a></li>
+                  <li><a th:href="@{/placeInfo(id=${places.get(i).id})}" th:text="${' '+places.get(i).view}" class="icon-eye"></a></li>
+                </ul>
               </div>
             </div>
-          </div>
-          <div class="col-lg-6" th:each="i : ${#numbers.sequence( 1, places.size())}">
             <div class="block-3 d-md-flex ftco-animate"  th:if="${i%2==1}">
               <div class="image order-last" th:style="'background: url(/image/' + ${places.get(i).photo1} + ');background-size: cover'"></div>
-              <div class="text text-center order-first">
+              <div class="text text-center order-last">
                 <h2 class="heading" th:text="${places.get(i).title}"></h2>
                 <p th:text="${places.get(i).smallText}"> </p>
-                <span class="icon-chat" th:text="${'  '+places.get(i).comNumber}"></span>
+                <ul class="post-footer">
+                  <li><a th:href="@{/placeInfo(id=${places.get(i).id})}"  th:text="${' '+places.get(i).likes}" class="icon-heart"></a></li>
+                  <li><a th:href="@{/placeInfo(id=${places.get(i).id})}" th:text="${' '+places.get(i).comNumber}" class="icon-chat"></a></li>
+                  <li><a th:href="@{/placeInfo(id=${places.get(i).id})}" th:text="${' '+places.get(i).view}" class="icon-eye"></a></li>
+                </ul>
               </div>
             </div>
           </div>
