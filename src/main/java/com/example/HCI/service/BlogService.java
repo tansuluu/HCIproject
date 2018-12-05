@@ -43,6 +43,11 @@ public class BlogService {
     {
         return blogRepository.findBlogByUsername(username);
     }
+
+    public List<Blog> getAll() {
+        return blogRepository.getAll();
+    }
+
     public Blog updateLikes(long id, int n){
         Blog blog=findById(id);
         blog.setLikes(blog.getLikes()+n);
@@ -54,4 +59,5 @@ public class BlogService {
         blog.setComNumber(blog.getComNumber() + n);
         return save(blog);
     }
+
 }

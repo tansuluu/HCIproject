@@ -85,6 +85,13 @@ public class BlogController {
         Comment comment=new Comment();
         model.addAttribute("comment",comment);
 
+        return "blog";
+    }
+
+    @RequestMapping("/blogs")
+    public String places(Model model){
+        List<Blog> list=blogService.getAll();
+        model.addAttribute("blogs", list);
         return "blogs";
     }
 }
