@@ -176,7 +176,7 @@
             <div class="block-3 d-md-flex ftco-animate"  th:if="${i%2==0}">
               <div class="image order-last" th:style="'background: url(/image/' + ${places.get(i).photo1} + ');background-size: cover'"></div>
               <div class="text text-center order-first">
-                <h2 class="heading" th:text="${places.get(i).title}"></h2>
+                <a th:href="@{/placeInfo(id=${places.get(i).id})}" ><h2 class="heading" th:text="${places.get(i).title}" style="color: #0c5460"></h2></a>
                 <p th:text="${places.get(i).smallText}"> </p>
                 <ul class="post-footer">
                   <li><a th:href="@{/placeInfo(id=${places.get(i).id})}"  th:text="${' '+places.get(i).likes}" class="icon-heart"></a></li>
@@ -188,7 +188,7 @@
             <div class="block-3 d-md-flex ftco-animate"  th:if="${i%2==1}">
               <div class="image order-last" th:style="'background: url(/image/' + ${places.get(i).photo1} + ');background-size: cover'"></div>
               <div class="text text-center order-last">
-                <h2 class="heading" th:text="${places.get(i).title}"></h2>
+                <a th:href="@{/placeInfo(id=${places.get(i).id})}" ><h2 class="heading" th:text="${places.get(i).title}" style="color: #0c5460"></h2></a>
                 <p th:text="${places.get(i).smallText}"> </p>
                 <ul class="post-footer">
                   <li><a th:href="@{/placeInfo(id=${places.get(i).id})}"  th:text="${' '+places.get(i).likes}" class="icon-heart"></a></li>

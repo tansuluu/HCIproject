@@ -11,6 +11,7 @@ import java.util.List;
 public interface BlogRepository extends JpaRepository<Blog,Long> {
     Blog findById(long id);
     List<Blog> getAllByOrderByView();
+    List<Blog> getAllOrOrderByDate();
     List<Blog> findBlogByUsername(String username);
 
 }
