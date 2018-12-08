@@ -398,19 +398,22 @@
         </div>
         <div class="row ftco-animate">
             <div class="carousel1 owl-carousel ftco-owl">
-                <div class="item">
+                <div class="item" th:each="blog:${blogs}">
                     <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
+                        <a href="blog-single.html" class="block-20" th:style="'background: url(/image/' + ${blog.photo1} + ');background-size: cover'">
                         </a>
                         <div class="text p-4">
                             <div class="meta">
-                                <div><a href="#">July 7, 2018</a></div>
-                                <div><a href="#">Admin</a></div>
+                                <div><a href="" th:text="${blog.date}">July 7, 2018</a></div>
+                                <div><a href="" th:text="${blog.username}">Admin</a></div>
                             </div>
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                            <h3 class="heading" th:text="${blog.title}"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                             <p class="clearfix">
-                                <a href="#" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                                <a th:href="@{/blogInfo(id=${blog.id})}"  class="float-left read">Read more</a>
+                                <a href="" class="float-right meta-chat" th:text="${blog.comNumber}" ><span class="icon-chat"></span> </a>
+                                <a href="" class="float-right meta-chat" th:text="${blog.comNumber}" ><span class="icon-chat"></span> </a>
+                                <a href="" class="float-right meta-chat" th:text="${blog.comNumber}" ><span class="icon-chat"></span> </a>
+
                             </p>
                         </div>
                     </div>
