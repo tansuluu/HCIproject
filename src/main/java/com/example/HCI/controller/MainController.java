@@ -1,6 +1,7 @@
 package com.example.HCI.controller;
 
 import com.example.HCI.model.Place;
+import com.example.HCI.model.User;
 import com.example.HCI.service.BlogService;
 import com.example.HCI.service.PlaceService;
 import com.example.HCI.service.UserService;
@@ -42,6 +43,14 @@ public class MainController {
     @RequestMapping("/about")
     public String about(){
         return "about";
+
+    }
+
+    @RequestMapping("/gids")
+    public String gid(Model model){
+        ArrayList<User> list=userService.getAll();
+        model.addAttribute("gids", list);
+        return "gids";
 
     }
 }

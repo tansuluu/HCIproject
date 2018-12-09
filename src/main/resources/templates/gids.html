@@ -174,20 +174,18 @@
 					<h2>Our local gids</h2>
 				</div>
 			</div>
-			<div class="row ftco-animate">
-				<div class="carousel owl-carousel ftco-owl" >
-					<div class="item text-center" th:each="gid:${gids}">
+			<div class="row ftco-animate" style="padding-left: 12%">
+					<div class="item text-center" th:each="gid:${gids}" style="margin: 15px; width: 260px">
 						<div class="testimony-wrap p-4 pb-5">
 							<div class="user-img mb-4"  th:style="'background: url(' + ${gid.image} + ');border: 1px solid red; background-size: cover'"></div>
 							<div class="text">
 								<a th:href="@{/userPage(username=${gid.email})}" ><p class="name" th:text="${gid.name}"></p></a>
-								<p class="mb-5" th:text="${gid.aboutMe}">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								<p class="position">Experience <i style="color: #0c5460" th:text="${gid.experience}"></i></p>
+								<p class="mb-5" th:text="${gid.aboutMe}" style=" width: 180px; height: 110px;overflow: hidden;">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								<p class="position">Status: <i style="color: #0c5460" th:text="${gid.status}"></i></p>
 								<p class="position">Languages: <i style="color: #0c5460" th:text="${gid.languages}"></i></p>
 							</div>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	</section>

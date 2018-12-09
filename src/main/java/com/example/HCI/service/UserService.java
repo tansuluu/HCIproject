@@ -50,6 +50,6 @@ public class UserService {
     }
     public ArrayList<User> getAll()
     {
-        return (ArrayList) userRepository.getAll();
+        return (ArrayList) userRepository.getAllByOrderByAboutMe();
     }
 }

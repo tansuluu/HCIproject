@@ -11,5 +11,5 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> getAllByStatus(String status);
     User findByEmail(String email);
-    List<User> getAll();
+    List<User> getAllByOrderByAboutMe();
 }
