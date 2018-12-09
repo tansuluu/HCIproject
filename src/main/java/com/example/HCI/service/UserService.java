@@ -52,4 +52,8 @@ public class UserService {
     {
         return (ArrayList) userRepository.getAllByOrderByAboutMe();
     }
+
+    public ArrayList<User> findByName(String name){
+        return (ArrayList<User>) userRepository.findAllByName(name);
+    }
 }
