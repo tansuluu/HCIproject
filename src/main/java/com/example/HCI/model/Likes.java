@@ -25,6 +25,11 @@ public class Likes {
         this.appId = app_id;
     }
 
+    public Likes(long blogID,String username) {
+        this.username = username;
+        this.blogID = blogID;
+    }
+
     public long getId() {
         return id;
     }

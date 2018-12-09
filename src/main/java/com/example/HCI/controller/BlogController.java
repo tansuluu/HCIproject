@@ -75,16 +75,16 @@ public class BlogController {
 
     @RequestMapping("/blogInfo")
     public String showApplications(Model model, @RequestParam("id")long id, Principal principal){
-        Blog place=blogService.updateView(id,1);
+        Blog blog=blogService.updateView(id,1);
         List<Comment> list=commentService.getAllByBlogID(id);
         List<Blog> popular=blogService.getTop3PlaceByOrderByView();
         model.addAttribute("comments",list);
-        model.addAttribute("app",place);
+        model.addAttribute("app",blog);
         model.addAttribute("popular",popular);
         Comment comment=new Comment();
         model.addAttribute("comment",comment);
 
-        return "blog";
+        return "single-blog";
     }
 
     @RequestMapping("/blog")

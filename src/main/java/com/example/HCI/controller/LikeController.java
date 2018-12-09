@@ -1,6 +1,7 @@
 package com.example.HCI.controller;
 
 import com.example.HCI.model.Likes;
+import com.example.HCI.service.BlogService;
 import com.example.HCI.service.LikeService;
 import com.example.HCI.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,40 @@ public class LikeController {
     @Autowired
     PlaceService placeService;
 
+    @Autowired
+    BlogService blogService;
+
     @RequestMapping(value = "/addLike", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<?> getLike(@RequestParam("id") long id, @RequestParam("username") String username,Principal principal) {
         likeService.save(new Likes(username, id));
         placeService.updateLikes(id, 1);
         int likes = placeService.findById(id).getLikes();
         return ResponseEntity.ok(likes);
+    }
+
+    @RequestMapping(value = "/deleteLikeBlog", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> deletLikeBlog(@RequestParam("id") long id, @RequestParam("username") String username) {
+        likeService.removeByUsernameAndBlogIDd(username, id);
+        blogService.updateLikes(id, -1);
+        int likes = blogService.findById(id).getLikes();
+        return ResponseEntity.ok(likes);
+    }
+    @RequestMapping(value = "/addLikeBlog", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> getLikeBlog(@RequestParam("id") long id, @RequestParam("username") String username,Principal principal) {
+        likeService.save(new Likes(id, username));
+        blogService.updateLikes(id, 1);
+        int likes = blogService.findById(id).getLikes();
+        return ResponseEntity.ok(likes);
+    }
+
+    @RequestMapping(value = "/hasPutBlog", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> putedLikeBlog(@RequestParam("id") long id, @RequestParam("username") String username) {
+        int result =0 ;
+        if (likeService.existsByBlogIDAndUsername(id, username)) {
+            result = 1;
+        }
+        return ResponseEntity.ok(result);
+
     }
 
     @RequestMapping(value = "/deleteLike", method = RequestMethod.GET, produces = "application/json")
@@ -41,7 +70,6 @@ public class LikeController {
         int likes = placeService.findById(id).getLikes();
         return ResponseEntity.ok(likes);
     }
-
     @RequestMapping(value = "/hasPut", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<?> putedLike(@RequestParam("id") long id, @RequestParam("username") String username) {
         int result =0 ;
