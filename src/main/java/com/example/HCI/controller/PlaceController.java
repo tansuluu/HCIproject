@@ -4,6 +4,7 @@ package com.example.HCI.controller;
 import com.example.HCI.model.Comment;
 import com.example.HCI.model.Likes;
 import com.example.HCI.model.Place;
+import com.example.HCI.model.User;
 import com.example.HCI.repository.PlaceRepositoty;
 import com.example.HCI.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,6 +90,12 @@ public class PlaceController {
     @RequestMapping("/places")
     public String places(Model model){
         ArrayList<Place> list=(ArrayList)placeService.getAll();
+        model.addAttribute("places", list);
+        return "allPlaceS";
+    }
+    @RequestMapping("/findPlace")
+    public String find(@RequestParam(name = "input",required = true) String input, Model model){
+        ArrayList<Place> list=placeService.findByTitle(input);
         model.addAttribute("places", list);
         return "allPlaceS";
     }

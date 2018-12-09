@@ -3,6 +3,7 @@ package com.example.HCI.controller;
 
 import com.example.HCI.model.Blog;
 import com.example.HCI.model.Comment;
+import com.example.HCI.model.Place;
 import com.example.HCI.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -90,6 +92,13 @@ public class BlogController {
     @RequestMapping("/blog")
     public String places(Model model){
         List<Blog> list=blogService.getAll();
+        model.addAttribute("blogs", list);
+        return "blog";
+    }
+
+    @RequestMapping("/findBlog")
+    public String find(@RequestParam(name = "input",required = true) String input, Model model){
+        ArrayList<Blog> list=blogService.findByTitle(input);
         model.addAttribute("blogs", list);
         return "blog";
     }
