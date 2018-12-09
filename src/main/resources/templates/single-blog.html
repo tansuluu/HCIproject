@@ -69,7 +69,7 @@
 						<ul class="main_nav_list">
 							<li class="main_nav_item"><a th:href="@{/}">home</a></li>
 							<li class="main_nav_item"><a th:href="@{/about}">about as</a></li>
-							<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+							<li class="main_nav_item"><a th:href="@{/places}">offers</a></li>
 							<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
 							<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
 						</ul>
@@ -118,7 +118,7 @@
 		<ul>
 			<li class="menu_item"><a th:href="@{/}">home</a></li>
 			<li class="menu_item"><a th:href="@{/about}">about us</a></li>
-			<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+			<li class="menu_item"><a th:href="@{/places}">offers</a></li>
 			<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
 			<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 		</ul>
@@ -139,7 +139,7 @@
 
 					<div class="post-top-area">
 
-						<h5 class="pre-title"></h5>
+						<h5 class="pre-title" style="text-align: center; font-size: 35px; font-weight: bold">Blog</h5>
 
 						<h3 class="title" ><a  href=""><b th:text="${app.title}"></b></a></h3>
 
@@ -195,6 +195,7 @@
 
 <section class="recomended-area section">
 	<div class="container" >
+		<h5 class="pre-title" style="text-align: center; font-size: 35px; font-weight: bold">Popular blogs</h5>
 		<div class="row">
 
 			<div class="col-lg-4 col-md-6" th:each="app1:${popular}">
@@ -298,11 +299,10 @@
                 <div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
                     <div class="footer_nav">
                         <ul class="footer_nav_list">
-                            <li class="footer_nav_item"><a href="#">home</a></li>
-                            <li class="footer_nav_item"><a href="about.html">about us</a></li>
-                            <li class="footer_nav_item"><a href="offers.html">offers</a></li>
-                            <li class="footer_nav_item"><a href="blog.html">news</a></li>
-                            <li class="footer_nav_item"><a href="contact.html">contact</a></li>
+                            <li class="footer_nav_item"><a th:href="@{/}">home</a></li>
+                            <li class="footer_nav_item"><a th:href="@{/about}">about us</a></li>
+                            <li class="footer_nav_item"><a th:href="@{/places}">offers</a></li>
+                            <li class="footer_nav_item"><a th:href="@{/blog}">news</a></li>
                         </ul>
                     </div>
                 </div>
@@ -346,7 +346,7 @@
         var id=$("#appID").val();
         if(text!=null && text!="" && text!=" "){
             $.ajax({
-				url:"/newComment",
+				url:"/newCommentBlog",
 				type:"GET",
 				data:({comment:text, appId:id}),
                 dataType: 'json',

@@ -69,7 +69,7 @@
 						<ul class="main_nav_list">
 							<li class="main_nav_item"><a th:href="@{/}">home</a></li>
 							<li class="main_nav_item"><a th:href="@{/about}">about as</a></li>
-							<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+							<li class="main_nav_item"><a th:href="@{/places}">offers</a></li>
 							<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
 							<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
 						</ul>
@@ -118,7 +118,7 @@
 		<ul>
 			<li class="menu_item"><a th:href="@{/}">home</a></li>
 			<li class="menu_item"><a th:href="@{/about}">about us</a></li>
-			<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+			<li class="menu_item"><a th:href="@{/places}">offers</a></li>
 			<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
 			<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 		</ul>
@@ -139,7 +139,7 @@
 
 					<div class="post-top-area">
 
-						<h5 class="pre-title"></h5>
+						<h5 class="pre-title" style="text-align: center; font-size: 35px; font-weight: bold">Place</h5>
 
 						<h3 class="title" ><a  href=""><b th:text="${app.title}"></b></a></h3>
 
@@ -185,7 +185,6 @@
 							</ul>
 						</div>
 					</div><!-- post-bottom-area -->
-
 				</div><!-- main-post -->
 			</div><!-- col-lg-8 col-md-12 -->
 		</div><!-- row -->
@@ -195,6 +194,7 @@
 
 <section class="recomended-area section">
 	<div class="container" >
+		<h5 class="pre-title" style="text-align: center; font-size: 35px; font-weight: bold">Popular places</h5>
 		<div class="row">
 
 			<div class="col-lg-4 col-md-6" th:each="app1:${popular}">

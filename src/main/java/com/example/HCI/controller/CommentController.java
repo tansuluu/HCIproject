@@ -2,6 +2,7 @@ package com.example.HCI.controller;
 
 import com.example.HCI.model.Comment;
 import com.example.HCI.model.Likes;
+import com.example.HCI.service.BlogService;
 import com.example.HCI.service.CommentService;
 import com.example.HCI.service.PlaceService;
 import com.example.HCI.service.UserService;
@@ -31,6 +32,9 @@ public class CommentController {
     @Autowired
     PlaceService placeService;
 
+    @Autowired
+    BlogService blogService;
+
     @RequestMapping("/deleteComment")
     public String deleteComment(@RequestParam("id") long id, @RequestParam("apId") long appId) {
         placeService.updateCommentNum(appId, -1);
@@ -47,6 +51,25 @@ public class CommentController {
         comment.setImage(userService.findUserByEmail(principal.getName()).getImage());
         Comment comment1=commentService.save(comment);
         placeService.updateCommentNum(comment.getIdPlace(), 1);
+        return ResponseEntity.ok(comment1);
+    }
+
+    @RequestMapping("/deleteCommentBlog")
+    public String deleteCommentBlog(@RequestParam("id") long id, @RequestParam("apId") long appId) {
+        blogService.updateCommentNum(appId, -1);
+        commentService.deleteById(id);
+        return "redirect:/blogInfo?id=" + appId + "#comment";
+    }
+
+    @RequestMapping(value = "/newCommentBlog", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> addCommentBlog(@RequestParam("comment") String text,@RequestParam("appId") long appId, Principal principal) {
+        Comment comment=new Comment();
+        comment.setComentText(text);
+        comment.setUsername(principal.getName());
+        comment.setBlogID(appId);
+        comment.setImage(userService.findUserByEmail(principal.getName()).getImage());
+        Comment comment1=commentService.save(comment);
+        blogService.updateCommentNum(comment.getBlogID(), 1);
         return ResponseEntity.ok(comment1);
     }
 }

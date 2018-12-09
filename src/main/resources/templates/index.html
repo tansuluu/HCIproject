@@ -83,7 +83,7 @@
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a th:href="@{/}">home</a></li>
 								<li class="main_nav_item"><a th:href="@{/about}">about us</a></li>
-								<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+								<li class="main_nav_item"><a th:href="@{/places}">offers</a></li>
 								<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
 								<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
 							</ul>
@@ -400,7 +400,7 @@
             <div class="carousel1 owl-carousel ftco-owl">
                 <div class="item" th:each="blog:${blogs}">
                     <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20" th:style="'background: url(/image/' + ${blog.photo1} + ');background-size: cover'">
+                        <a th:href="@{/blogInfo(id=${blog.id})}"  class="block-20" th:style="'background: url(/image/' + ${blog.photo1} + ');background-size: cover'">
                         </a>
                         <div class="text p-4">
                             <div class="meta">
