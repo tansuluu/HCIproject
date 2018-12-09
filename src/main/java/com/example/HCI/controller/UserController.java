@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,7 +40,9 @@ public class UserController {
 
     @RequestMapping("/find")
     public String find(@RequestParam(name = "input",required = true) String input, Model model){
-
+        ArrayList<User> list=userService.findByName(input);
+        model.addAttribute("gids", list);
+        return "gids";
     }
     @RequestMapping("/userPage")
     public String showUser(Model model, @RequestParam("username")String email){

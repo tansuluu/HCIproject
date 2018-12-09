@@ -59,4 +59,7 @@ public class PlaceService {
         return placeRepositoty.getAllByOrderByView();
     }
 
+    public ArrayList<Place> findByTitle(String title){
+        return (ArrayList)placeRepositoty.findAllByTitle(title);
+    }
 }

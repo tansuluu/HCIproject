@@ -5,6 +5,7 @@ import com.example.HCI.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -59,6 +60,10 @@ public class BlogService {
         blog.setView(blog.getView());
         blog.setComNumber(blog.getComNumber() + n);
         return save(blog);
+    }
+
+    public ArrayList<Blog> findByTitle(String title){
+        return (ArrayList<Blog>) blogRepository.findAllByTitle(title);
     }
 
 }
