@@ -48,5 +48,8 @@ public class UserService {
         finalist.add(list.get(2));
         return finalist;
     }
-
+    public ArrayList<User> getAll()
+    {
+        return (ArrayList) userRepository.getAll();
+    }
 }
