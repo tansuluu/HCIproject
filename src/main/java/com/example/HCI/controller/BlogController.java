@@ -87,10 +87,10 @@ public class BlogController {
         return "blog";
     }
 
-    @RequestMapping("/blogs")
+    @RequestMapping("/blog")
     public String places(Model model){
         List<Blog> list=blogService.getAll();
         model.addAttribute("blogs", list);
-        return "allPlaceS";
+        return "blog";
     }
 }
