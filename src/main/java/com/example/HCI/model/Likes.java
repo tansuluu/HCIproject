@@ -14,6 +14,8 @@ public class Likes {
     private String username;
     @Column(name = "appId")
     private long appId;
+    @Column(name = "blogID")
+    private long blogID;
 
     public Likes() {
     }
@@ -45,5 +47,13 @@ public class Likes {
 
     public void setAppId(long appId) {
         this.appId = appId;
+    }
+
+    public long getBlogID() {
+        return blogID;
+    }
+
+    public void setBlogID(long blogID) {
+        this.blogID = blogID;
     }
 }
