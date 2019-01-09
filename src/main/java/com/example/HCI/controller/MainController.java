@@ -51,7 +51,11 @@ public class MainController {
         ArrayList<User> list=userService.getAll();
         model.addAttribute("gids", list);
         return "gids";
+    }
 
+    @RequestMapping("/chats")
+    public String chats(Model model){
+        return "chats";
     }
 }
 
