@@ -367,6 +367,16 @@ iframe {
   line-height: 1.2;
 }
 
+#res{
+  font-size: 14px;
+  color: #0c5460;
+
+}
+
+#res:hover{
+  color: #1b1e21;
+}
+
 .btn-hide-validate {
   font-family: Material-Design-Iconic-Font;
   font-size: 15px;

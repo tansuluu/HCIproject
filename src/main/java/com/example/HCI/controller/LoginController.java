@@ -5,6 +5,7 @@ import com.example.HCI.model.User;
 import com.example.HCI.service.StorageService;
 import com.example.HCI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -92,6 +94,18 @@ public class LoginController {
         modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
         modelAndView.setViewName("admin/home");
         return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/resetPassword", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> reset(@RequestParam("email") String email, HttpServletRequest request) {
+        int result =0 ;
+        User user=userService.findUserByEmail(email);
+        if (user!=null) {
+            userService.sendTokenToReset(user,request);
+            result = 1;
+        }
+        return ResponseEntity.ok(result);
 
     }
 }

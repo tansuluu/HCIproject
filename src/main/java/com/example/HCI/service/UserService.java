@@ -6,12 +6,16 @@ import com.example.HCI.model.User;
 import com.example.HCI.repository.RoleRepository;
 import com.example.HCI.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.UUID;
 
 
 @Service("userService")
@@ -20,6 +24,9 @@ public class UserService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private EmailService emailService;
 
     @Autowired
     public UserService(UserRepository userRepository, RoleRepository roleRepository,BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -55,5 +62,19 @@ public class UserService {
 
     public ArrayList<User> findByName(String name){
         return (ArrayList<User>) userRepository.findAllByName(name);
+    }
+
+    public void sendTokenToReset(User user, HttpServletRequest request){
+        user.setToken(UUID.randomUUID().toString());
+
+        String appUrl = request.getScheme() + "://" + request.getServerName();
+
+        SimpleMailMessage registrationEmail = new SimpleMailMessage();
+        registrationEmail.setTo(user.getEmail());
+        registrationEmail.setSubject("Registration Confirmation");
+        registrationEmail.setText("To reset your password on opentravel site, please click the link below:\n"
+                + appUrl + ":8080/confirm?token=" + user.getToken());
+        registrationEmail.setFrom("noreply@domain.com");
+        emailService.sendEmail(registrationEmail);
     }
 }
