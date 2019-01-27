@@ -50,7 +50,7 @@
 			</div>
 
 			<div class="container-login100-form-btn">
-				<button class="login100-form-btn" type="submit" id="pas">
+				<button class="login100-form-btn" type="button" id="pas">
 					Submit
 				</button>
 			</div>
@@ -76,19 +76,26 @@
 <script>
     $(document).ready(function() {
         $("#pas").on("click",function(){
+            console.log("hhh");
 			if($("#password").val()==$("#password1").val()){
+			    console.log("dsx");
                 $.ajax({
                     url:"/newPassword",
-                    type:"POST",
+                    type:"GET",
                     data:({password:$("#password").val(), token:$("#token").val()}),
                     dataType: 'json',
-                    contentType: "application/json"
+                    contentType: "application/json",
+					success: funcSuccess
                 });
 			}
 			else {
 			    $("#suc").text("The passwords are not equal");
 			}
         });
+        function funcSuccess(data) {
+            console.log(data);
+            window.location.href="/login";
+        }
     });
 </script>
 <!--===============================================================================================-->

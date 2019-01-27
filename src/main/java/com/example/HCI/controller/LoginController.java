@@ -121,18 +121,14 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(value = "/newPassword", method = RequestMethod.POST, produces = "application/json")
-    public String newPassword(@RequestParam("password") String password,@RequestParam("token") String token,Model model) {
+    @RequestMapping(value = "/newPassword", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> newPassword(@RequestParam("password") String password,@RequestParam("token") String token,Model model) {
         User user=userService.findByToken(token);
         if (user!=null) {
             userService.saveNewPas(user,password);
-            return "redirect:/login";
+            return ResponseEntity.ok(1);
         }
-        else {
-            return "reset";
-        }
-
-
+        return ResponseEntity.ok(0);
     }
 
 }
