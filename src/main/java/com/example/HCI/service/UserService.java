@@ -48,6 +48,7 @@ public class UserService {
     }
     public User saveNewPas(User user,String pas){
         user.setPassword(bCryptPasswordEncoder.encode(pas));
+        user.setToken("");
         return userRepository.save(user);
     }
     public ArrayList<User> getAllByStatus(String status){

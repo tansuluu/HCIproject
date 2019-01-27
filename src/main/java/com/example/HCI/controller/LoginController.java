@@ -130,6 +130,5 @@ public class LoginController {
         }
         return ResponseEntity.ok(0);
     }
-
 }
 
