@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -108,5 +109,31 @@ public class LoginController {
         return ResponseEntity.ok(result);
 
     }
+    @RequestMapping("/reset")
+    public String  reset(@RequestParam("token") String token,Model model){
+        User user=userService.findByToken(token);
+        if(user==null){
+            return "error";
+        }
+        else {
+            model.addAttribute("token",token);
+            return "reset";
+        }
+    }
+
+    @RequestMapping(value = "/newPassword", method = RequestMethod.POST, produces = "application/json")
+    public String newPassword(@RequestParam("password") String password,@RequestParam("token") String token,Model model) {
+        User user=userService.findByToken(token);
+        if (user!=null) {
+            userService.saveNewPas(user,password);
+            return "redirect:/login";
+        }
+        else {
+            return "reset";
+        }
+
+
+    }
+
 }
 

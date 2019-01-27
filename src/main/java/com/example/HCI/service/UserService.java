@@ -46,7 +46,10 @@ public class UserService {
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         return userRepository.save(user);
     }
-
+    public User saveNewPas(User user,String pas){
+        user.setPassword(bCryptPasswordEncoder.encode(pas));
+        return userRepository.save(user);
+    }
     public ArrayList<User> getAllByStatus(String status){
         ArrayList<User> list=(ArrayList<User>)userRepository.getAllByStatus(status);
         ArrayList<User> finalist=new ArrayList<>();
@@ -71,10 +74,14 @@ public class UserService {
 
         SimpleMailMessage registrationEmail = new SimpleMailMessage();
         registrationEmail.setTo(user.getEmail());
-        registrationEmail.setSubject("Registration Confirmation");
+        registrationEmail.setSubject("Password reset");
         registrationEmail.setText("To reset your password on opentravel site, please click the link below:\n"
-                + appUrl + ":8080/confirm?token=" + user.getToken());
+                + appUrl + ":8080/reset?token=" + user.getToken());
         registrationEmail.setFrom("noreply@domain.com");
         emailService.sendEmail(registrationEmail);
+    }
+
+    public User findByToken(String token){
+        return userRepository.findByToken(token);
     }
 }
